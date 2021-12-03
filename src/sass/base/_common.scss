@@ -1,0 +1,45 @@
+// Title
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+// List
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+// Link
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// Image
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+// Address
+address {
+  font-style: normal;
+}
+
+// Button
+button {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
