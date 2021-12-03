@@ -1,0 +1,30 @@
+.footer {
+  padding-top: 30px;
+  padding-bottom: 28px;
+}
+
+.font {
+  font-family: var(--main-font);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  align-items: center;
+  letter-spacing: 0.1em;
+  color: var(--text-color-footer);
+
+  @include max-width('medium') {
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
+
+.love {
+  width: 14px;
+  height: 12.88px;
+}
+
+.goit-link {
+  text-decoration: underline;
+}
