@@ -4,8 +4,10 @@
  */
 
 // BASE AND COMPONENTS
-@import './utils/variables';
-@import './utils/breackpoints';
-@import './utils/mixins';
+
 @import './base/body';
 @import './base/common';
+@import './utils/variables';
+@import './utils/mixins';
+@import './utils/breackpoints';
+@import './components/container';
