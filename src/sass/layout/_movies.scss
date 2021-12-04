@@ -1,0 +1,25 @@
+.movies {
+  padding-top: 20px;
+  padding-bottom: 40px;
+  @include min-width('medium') {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
+
+.info-title {
+  padding: 40px;
+  text-align: center;
+
+  border: 1px solid blue;
+  border-radius: 4px;
+  width: 280px;
+  height: 400px;
+
+  @include min-width('medium') {
+    width: 600px;
+  }
+  @include min-width('large') {
+    width: 900px;
+  }
+}
