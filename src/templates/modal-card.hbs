@@ -1,58 +1,66 @@
-<div class='modal'>
+<div class='modal' id={{id}}>
   <button class='modal__close-btn' type='button'></button>
 
-  {{! picture poster film }}
-
+  <!-- picture poster film -->
   <div class='modal__container-img'>
-    <img class='modal__img' src='' alt='' />
+    {{#if poster_path}}
+      <img
+        class='modal__img'
+        src='https://image.tmdb.org/t/p/w780{{poster_path}}'
+        alt='{{title}}'
+      />
+    {{else}}
+      <img class='film__img' src='https://i.ibb.co/8mnHvb2/no-poster.jpg' alt='no_poster' />
+    {{/if}}
 
   </div>
 
-  {{! text part of the modal }}
+  <!-- text part of the modal -->
   <div class='modal__text-container'>
-    <h2 class='modal__text-title'></h2>
+
+    <h2 class='modal__text-title'>{{title}}</h2>
 
     <table class='modal__table'>
       <tr class='modal__table-text'>
         <td class='modal__table-property'>Vote / Votes</td>
         <td class='modal__table-quantity'>
-          <span class='text vote-text'></span>
+          <span class='text vote-text'>{{vote_average}}</span>
           /
-          <span class='text'></span>
+          <span class='text'>{{vote_count}}</span>
         </td>
       </tr>
 
       <tr class='modal__table-text'>
         <td class='modal__table-property'>Popularity</td>
         <td class='modal__table-quantity'>
-          <span class='text'></span>
+          <span class='text'>{{popularity}}</span>
         </td>
       </tr>
 
       <tr class='modal__table-text'>
         <td class='modal__table-property'>Original title</td>
         <td class='modal__table-quantity'>
-          <span class='text'></span>
+          <span class='text'>{{original_title}}</span>
         </td>
       </tr>
 
       <tr class='modal__table-text'>
         <td class='modal__table-property'>Genre</td>
         <td class='modal__table-quantity'>
-          <span class='text'></span>
+          <span class='text'>{{#each genres}}{{this.name}}{{/each}}</span>
         </td>
       </tr>
     </table>
 
     <div class='description'>
       <p class='discription__title'>About</p>
-      <p class='discription__text'></p>
+      <p class='discription__text'>{{overview}}</p>
     </div>
 
-    {{! modal buttons }}
+    <!-- modal buttons -->
     <div class='modal__btn-wrapper'>
-      <button class='modal__btn js-btn__watched' type='button'>add to watched</button>
-      <button class='modal__btn js-btn__queue' type='button'>add to queue</button>
+      <button class='modal__btn js-btn__watched' type='button' data-id='{{id}}'>add to watched</button>
+      <button class='modal__btn js-btn__queue' type='button' data-id='{{id}}'>add to queue</button>
     </div>
   </div>
 

@@ -1,2 +1,2 @@
 import './sass/main.scss';
-import modalCard from './templates/modal-card.hbs';
+import { modalCard, cardsFilm } from './templates/modal-card.hbs';
