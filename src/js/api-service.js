@@ -8,7 +8,7 @@ export default class ApiService {
     this.searchValue = '';
   }
 
-  fetchTrendingMovie() {
+  fetchTrendingMovies() {
     try {
       return axios
         .get(`/3/trending/movie/day?api_key=${API_KEY}&page=${this.pageNum}`)
