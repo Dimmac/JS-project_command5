@@ -30,14 +30,21 @@ ol {
   list-style: none;
 }
 
-a {
+.link {
   text-decoration: none;
-  color: inherit;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.address {
+  font-style: normal;
 }
 
 img {
-  display: block;
-
   max-width: 100%;
   height: auto;
 }
@@ -170,10 +177,18 @@ button {
   height: 12.88px;
 }
 
-@media (max-width: 767px) {
-  .love {
-    width: 12px;
-    height: 12px;
-  }
+.goit-link {
+  text-decoration: underline;
+  color: var(--text-color-footer);
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: tomato;
 }
 /*# sourceMappingURL=main.css.map */
