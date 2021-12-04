@@ -12,5 +12,7 @@
 @import './utils/breackpoints';
 @import './components/container';
 @import './components/button';
-@import './components/header';
-@import './components/footer';
+
+@import './layout/header';
+@import './layout/movies';
+@import './layout/footer';
