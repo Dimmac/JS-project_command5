@@ -1,0 +1,29 @@
+{{#each this}}
+  <li class='film__item'>
+    <article class='film__box' id={{id}}>
+      <div class='film__box-img'>
+        {{#if poster_path}}
+          <img
+            class='film__img'
+            src='https://image.tmdb.org/t/p/w500{{poster_path}}'
+            alt='{{title}}'
+          />
+        {{else}}
+          <img class='film__img' src='https://i.ibb.co/8mnHvb2/no-poster.jpg' alt='no_poster' />
+        {{/if}}
+      </div>
+      <div class='film__box-info'>
+        <h2 class='box-info__title'>{{title}}</h2>
+        <div class='film__thumb'>
+          <ul class='box-info__list-genres'>
+            {{#each genres}}
+              <li class='box-info__item-genre'>{{name}}</li>
+            {{/each}}
+          </ul>
+          <span class='box-info__date'>| {{year}}</span>
+          <span class='box-info__rating'>{{vote_average}}</span>
+        </div>
+      </div>
+    </article>
+  </li>
+{{/each}}
