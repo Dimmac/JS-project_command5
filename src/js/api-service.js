@@ -23,7 +23,7 @@ export default class ApiService {
   fetchMovieForQuery() {
     try {
       return axios
-        .get(`/3/search/movie?api_key=${API_KEY}&page=${this.pageNum}&query=${searchValue}`)
+        .get(`/3/search/movie?api_key=${API_KEY}&page=${this.pageNum}&query=${this.searchValue}`)
         .then(response => {
           return response.data;
         });
