@@ -6,9 +6,11 @@
 // BASE AND COMPONENTS
 
 @import './base/body';
-@import './base/common';
+@import './base/_common.scss';
 @import './utils/variables';
 @import './utils/mixins';
 @import './utils/breackpoints';
 @import './components/container';
 @import './components/button';
+@import './components/footer';
+@import './components/header';
