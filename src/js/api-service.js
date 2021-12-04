@@ -8,11 +8,13 @@ export default class ApiService {
     this.searchValue = '';
   }
 
-  fetchMovie() {
+  fetchTrendingMovies() {
     try {
-      return axios.get(`/3/trending/movie/day?api_key=${API_KEY}`).then(response => {
-        return response.data;
-      });
+      return axios
+        .get(`/3/trending/movie/day?api_key=${API_KEY}&page=${this.pageNum}`)
+        .then(response => {
+          return response.data;
+        });
     } catch (error) {
       console.log(`ERROR: fetchMovie ${error}`);
     }
@@ -20,11 +22,23 @@ export default class ApiService {
 
   fetchMovieForQuery() {
     try {
-      return axios.get(`/3/search/movie?api_key=${API_KEY}&query=${searchValue}`).then(response => {
-        return response.data;
-      });
+      return axios
+        .get(`/3/search/movie?api_key=${API_KEY}&page=${this.pageNum}&query=${this.searchValue}`)
+        .then(response => {
+          return response.data;
+        });
     } catch (error) {
       console.log(`ERROR: fetchMovieForQuery ${error}`);
+    }
+  }
+
+  fetchGenre() {
+    try {
+      return axios.get(`/3/genre/movie/list?api_key=${API_KEY}`).then(response => {
+        return response.data.genres;
+      });
+    } catch (error) {
+      console.log(`ERROR: fetchGenre ${error}`);
     }
   }
 
@@ -38,6 +52,9 @@ export default class ApiService {
 
   removePage() {
     this.pageNum -= 1;
+    if (this.pageNum <= 1) {
+      this.pageNum = 1;
+    }
   }
 
   get query() {
