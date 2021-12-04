@@ -34,7 +34,7 @@ export default class ApiService {
 
   fetchGenre() {
     try {
-      return axios.get(`/genre/movie/list?api_key=${API_KEY}`).then(response => {
+      return axios.get(`/3/genre/movie/list?api_key=${API_KEY}`).then(response => {
         return response.data.genres;
       });
     } catch (error) {
@@ -52,6 +52,9 @@ export default class ApiService {
 
   removePage() {
     this.pageNum -= 1;
+    if (this.pageNum <= 1) {
+      this.pageNum = 1;
+    }
   }
 
   get query() {
