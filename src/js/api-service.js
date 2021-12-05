@@ -12,6 +12,7 @@ export default class ApiService {
     const response = await axios.get(
       `/3/trending/movie/day?api_key=${API_KEY}&page=${this.pageNum}`,
     );
+    this.pageAdd();
     return response.data;
   }
 

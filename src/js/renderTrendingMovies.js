@@ -12,7 +12,7 @@ const galleryEl = document.querySelector('.film__list');
 //need pass NewApiService.query;
 // NewApiService.fetchMovieForQuery().then(results => console.log(results));
 
-function renderGalleryTrendingMovie(data) {
+export function renderGalleryTrendingMovie(data) {
   const markup = filmGallery(data);
   galleryEl.insertAdjacentHTML('beforeend', markup);
 }
