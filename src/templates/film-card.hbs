@@ -16,11 +16,11 @@
         <h2 class='box-info__title'>{{title}}</h2>
         <div class='film__thumb'>
           <ul class='box-info__list-genres'>
-            {{#each genres}}
-              <li class='box-info__item-genre'>{{name}}</li>
+            {{#each genre_ids}}
+              <li class='box-info__item-genre'>action</li>
             {{/each}}
           </ul>
-          <span class='box-info__date'>| {{year}}</span>
+          <span class='box-info__date'>| {{release_date}}</span>
           <span class='box-info__rating'>{{vote_average}}</span>
         </div>
       </div>
