@@ -24,7 +24,7 @@
   }
 
   @include min-width('large') {
-    // max-width: 1024px - 2 * 71px;
+    max-width: 1024px - 2 * 71px;
     grid-template-columns: repeat(3, minmax(274px, 1fr));
   }
 }

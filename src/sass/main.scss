@@ -5,14 +5,14 @@
 
 // BASE AND COMPONENTS
 
-@import './base/body';
-@import './base/_common.scss';
-@import './utils/variables';
-@import './utils/mixins';
-@import './utils/breackpoints';
-@import './components/container';
-@import './components/button';
+@import './base/_body';
+@import './base/_common';
+@import './utils/_variables';
+@import './utils/_mixins';
+@import './utils/_breackpoints';
+@import './components/_container';
+@import './components/_button';
 
-@import './layout/header';
-@import './layout/movies';
-@import './layout/footer';
+@import './layout/_header';
+@import './layout/_movies';
+@import './layout/_footer';
