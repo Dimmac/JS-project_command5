@@ -3,7 +3,7 @@ import filmGallery from '../templates/film-card.hbs';
 
 const NewApiService = new ApiService();
 
-const galleryEl = document.querySelector('.container-movie');
+const galleryEl = document.querySelector('.film__list');
 
 // NewApiService.fetchTrendingMovies().then(renderGalleryTrendingMovie);
 // NewApiService.fetchGenre().then(results => console.log(results));
