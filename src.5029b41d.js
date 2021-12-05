@@ -69,4 +69,4 @@ module.exports=require("./lib/axios");
 },{"./api-service.js":"hC31"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss");var e=s(require("./js/renderTrendingMovies.js"));function s(e){return e&&e.__esModule?e:{default:e}}
 },{"./sass/main.scss":"clu1","./js/renderTrendingMovies.js":"hOC4"}]},{},["Focm"], null)
-//# sourceMappingURL=/JS-project_command5/src.778ae082.js.map
+//# sourceMappingURL=/JS-project_command5/src.5029b41d.js.map
