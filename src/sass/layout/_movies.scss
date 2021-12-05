@@ -1,4 +1,4 @@
-.movies {
+.container-movie {
   padding-top: 20px;
   padding-bottom: 40px;
   @include min-width('medium') {
@@ -36,23 +36,26 @@
 .film__box-img {
   margin: 0 auto 10px;
   border-radius: 5px;
+  width: 280px;
+  height: 398px;
+  @include min-width('medium') {
+    width: 294px;
+    height: 398px;
+  }
+
+  @include min-width('large') {
+    width: 274px;
+    height: 398px;
+  }
 }
 
 .film__img {
+  object-fit: cover;
   display: block;
   margin: 0 auto;
   border-radius: 5px;
   width: 100%;
-  height: auto;
-  max-height: 398px;
-
-  @include min-width('medium') {
-    min-width: 294px;
-  }
-
-  @include min-width('large') {
-    min-width: 274px;
-  }
+  height: 100%;
 }
 
 .box-info__item-genre {
@@ -75,12 +78,21 @@
 .box-info__date {
   font-family: var(--main-font);
   @include font($fs: 12px, $fw: 500, $lh: 16px);
-  margin-left: 1px;
-  padding-left: 5px;
-  border-left: 1px solid var(--accent-color);
+
+  // border-left: 1px solid var(--accent-color);
+}
+.box-info__rating {
+  font-family: var(--main-font);
+  color: var(--text-color-light);
+  @include font($fs: 12px, $fw: 500, $lh: 16px);
+  border-radius: 5px;
+  padding: 1px 10px;
+  margin-left: 10px;
+  background-color: var(--accent-color);
 }
 // -------- Styles for заглушка))) ----------
 .info-title {
+  display: none;
   padding: 40px;
   text-align: center;
 
