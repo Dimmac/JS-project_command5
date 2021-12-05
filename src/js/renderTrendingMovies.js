@@ -10,4 +10,4 @@ NewApiService.fetchGenre().then(results => console.log(results));
 //uncomment when will be in work
 //need pass NewApiService.query;
 // NewApiService.fetchMovieForQuery().then(results => console.log(results));
-NewApiService.galleryEl.insertAdjacentHTML = '';
+// NewApiService.galleryEl.insertAdjacentHTML = '';
