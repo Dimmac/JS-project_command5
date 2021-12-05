@@ -7,12 +7,85 @@
   }
 }
 
+// -------- Styles for movies ----------
+
+.film__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  justify-items: center;
+
+  margin: 0 auto;
+  list-style: none;
+
+  @include min-width('medium') {
+    grid-template-columns: repeat(2, minmax(294px, 1fr));
+    gap: 30px;
+  }
+
+  @include min-width('large') {
+    // max-width: 1024px - 2 * 71px;
+    grid-template-columns: repeat(3, minmax(274px, 1fr));
+  }
+}
+
+.film__item {
+  width: 100%;
+}
+
+.film__box-img {
+  margin: 0 auto 10px;
+  border-radius: 5px;
+}
+
+.film__img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 5px;
+  width: 100%;
+  height: auto;
+  max-height: 398px;
+
+  @include min-width('medium') {
+    min-width: 294px;
+  }
+
+  @include min-width('large') {
+    min-width: 274px;
+  }
+}
+
+.box-info__item-genre {
+  font-family: var(--main-font);
+  @include font($fs: 12px, $fw: 500, $lh: 16px);
+}
+
+.box-info__title {
+  text-transform: uppercase;
+  color: var(--text-color-dark);
+  font-family: var(--main-font);
+  @include font($fs: 12px, $fw: 500, $lh: 16px);
+}
+
+.film__thumb {
+  margin: 0;
+  color: var(--accent-color);
+}
+
+.box-info__date {
+  font-family: var(--main-font);
+  @include font($fs: 12px, $fw: 500, $lh: 16px);
+  margin-left: 1px;
+  padding-left: 5px;
+  border-left: 1px solid var(--accent-color);
+}
+// -------- Styles for заглушка))) ----------
 .info-title {
   padding: 40px;
   text-align: center;
 
   border: 1px solid blue;
-  border-radius: 4px;
+  border-radius: 5px;
   width: 280px;
   height: 400px;
 
