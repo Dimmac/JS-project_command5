@@ -1,4 +1,4 @@
-{{#each this.results}}
+{{#each this}}
   <li class='film__item'>
     <article class='film__box' id={{id}}>
       <div class='film__box-img'>
@@ -15,13 +15,29 @@
       <div class='film__box-info'>
         <h2 class='box-info__title'>{{title}}</h2>
         <div class='film__thumb'>
-          <ul class='box-info__list-genres'>
-            {{#each genre_ids}}
-              <li class='box-info__item-genre'>action</li>
-            {{/each}}
+
+          <p class='box-info__genres'>
+            {{#each genres}}
+              {{#if @last}}
+                {{this}}
+              {{else}}
+                {{this}},
+              {{/if}}{{/each}}
+            |
+            {{release_date}}
+            <span class='box-info__rating'>{{vote_average}}</span>
+          </p>
+
+          {{!-- <ul class='box-info__list-genres'>
+            {{#each genres}}
+              {{#if @last}}
+                <li class='box-info__item-genre'>{{this}}</li>
+              {{else}}
+                <li class='box-info__item-genre'>{{this}},</li>
+              {{/if}}{{/each}}
           </ul>
           <span class='box-info__date'>| {{release_date}}</span>
-          <span class='box-info__rating'>{{vote_average}}</span>
+          <span class='box-info__rating'>{{vote_average}}</span> --}}
         </div>
       </div>
     </article>
