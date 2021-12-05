@@ -58,7 +58,7 @@
   height: 100%;
 }
 
-.box-info__item-genre {
+.box-info__genres {
   font-family: var(--main-font);
   @include font($fs: 12px, $fw: 500, $lh: 16px);
 }
@@ -75,12 +75,12 @@
   color: var(--accent-color);
 }
 
-.box-info__date {
-  font-family: var(--main-font);
-  @include font($fs: 12px, $fw: 500, $lh: 16px);
+// .box-info__date {
+//   font-family: var(--main-font);
+//   @include font($fs: 12px, $fw: 500, $lh: 16px);
 
-  // border-left: 1px solid var(--accent-color);
-}
+//   border-left: 1px solid var(--accent-color);
+// }
 .box-info__rating {
   font-family: var(--main-font);
   color: var(--text-color-light);

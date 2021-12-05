@@ -1,6 +1,6 @@
 import ApiService from './api-service.js';
 import filmGallery from '../templates/film-card.hbs';
-
+import { formatData } from './formatted-data';
 const NewApiService = new ApiService();
 
 const galleryEl = document.querySelector('.film__list');
@@ -13,7 +13,8 @@ const galleryEl = document.querySelector('.film__list');
 // NewApiService.fetchMovieForQuery().then(results => console.log(results));
 
 function renderGalleryTrendingMovie(data) {
-  const markup = filmGallery(data);
+  const formattedData = formatData(data.results);
+  const markup = filmGallery(formattedData);
   galleryEl.insertAdjacentHTML('beforeend', markup);
 }
 
