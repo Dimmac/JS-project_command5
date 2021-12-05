@@ -8,38 +8,28 @@ export default class ApiService {
     this.searchValue = '';
   }
 
-  fetchTrendingMovies() {
-    try {
-      return axios
-        .get(`/3/trending/movie/day?api_key=${API_KEY}&page=${this.pageNum}`)
-        .then(response => {
-          return response.data;
-        });
-    } catch (error) {
-      console.log(`ERROR: fetchMovie ${error}`);
-    }
+  async fetchTrendingMovies() {
+    const response = await axios.get(
+      `/3/trending/movie/day?api_key=${API_KEY}&page=${this.pageNum}`,
+    );
+    return response.data;
   }
 
-  fetchMovieForQuery() {
-    try {
-      return axios
-        .get(`/3/search/movie?api_key=${API_KEY}&page=${this.pageNum}&query=${this.searchValue}`)
-        .then(response => {
-          return response.data;
-        });
-    } catch (error) {
-      console.log(`ERROR: fetchMovieForQuery ${error}`);
-    }
+  async fetchMovieForQuery() {
+    const response = await axios.get(
+      `/3/search/movie?api_key=${API_KEY}&page=${this.pageNum}&query=${this.searchValue}&language=en-US&include_adult=false`,
+    );
+    return response.data;
   }
 
-  fetchGenre() {
-    try {
-      return axios.get(`/3/genre/movie/list?api_key=${API_KEY}`).then(response => {
-        return response.data.genres;
-      });
-    } catch (error) {
-      console.log(`ERROR: fetchGenre ${error}`);
-    }
+  async fetchGenre() {
+    const response = await axios.get(`/3/genre/movie/list?api_key=${API_KEY}`);
+    return response.data;
+  }
+
+  async fetchMovieById(id) {
+    const response = await axios.get(`/3/movie/${id}?api_key=${API_KEY}&language=en-US`);
+    return response.data;
   }
 
   pageAdd() {
