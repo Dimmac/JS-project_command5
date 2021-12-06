@@ -1,6 +1,7 @@
 import ApiService from './api-service.js';
 import filmGallery from '../templates/film-card.hbs';
 import { formatData } from './formatted-data';
+import { saveTrendingToLocalStorage, STORAGE_KEY_TRENDING } from './saveTrendingTolocalStorage';
 const NewApiService = new ApiService();
 
 const galleryEl = document.querySelector('.film__list');
@@ -18,4 +19,6 @@ export function renderGalleryTrendingMovie(data) {
   galleryEl.insertAdjacentHTML('beforeend', markup);
 }
 
-NewApiService.fetchTrendingMovies().then(renderGalleryTrendingMovie);
+NewApiService.fetchTrendingMovies()
+  .then(renderGalleryTrendingMovie)
+  .then(saveTrendingToLocalStorage);
