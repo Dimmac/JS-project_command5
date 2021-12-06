@@ -18,7 +18,7 @@ refs.myLibraryEl.addEventListener('click', onLibraryClick);
 
 function onHomeClick(e) {
   e.preventDefault();
-
+  onHomeStateHeader();
   const savedTrending = localStorage.getItem(STORAGE_KEY_TRENDING);
   const parsedTrending = JSON.parse(savedTrending);
   renderGalleryTrendingMovie(parsedTrending);
@@ -27,6 +27,7 @@ function onHomeClick(e) {
 function onLibraryClick(e) {
   e.preventDefault();
   onLibraryStateHeader();
+  // refs.headerEl.classList.add('.header-container-library');
 }
 
 export default { onHomeClick, onLibraryClick };
