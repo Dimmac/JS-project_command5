@@ -1,7 +1,7 @@
 import ApiService from './api-service.js';
 import filmGallery from '../templates/film-card.hbs';
 import { formatData } from './formatted-data';
-const NewApiService = new ApiService();
+const newApiService = new ApiService();
 
 const galleryEl = document.querySelector('.film__list');
 
@@ -18,4 +18,4 @@ function renderGalleryTrendingMovie(data) {
   galleryEl.insertAdjacentHTML('beforeend', markup);
 }
 
-NewApiService.fetchTrendingMovies().then(renderGalleryTrendingMovie);
+newApiService.fetchTrendingMovies().then(renderGalleryTrendingMovie).catch(console.log);
