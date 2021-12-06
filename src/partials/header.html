@@ -1,41 +1,41 @@
 <header class="header">
-    <div class="container header-container">
-        <div class="header-info">
-            <div class="header_logo">
-                <a class="logo-svg link" href="./index.html">
-                    <svg width="24" height="24">
-                        <use href="./images/sprite.svg#icon-film"></use>
-                    </svg></a>
-                <a class="logo link" href="./index.html">Filmoteka</a>
-            </div>
-            <nav class="navigation">
-                <ul class="menu list">
-                    <li class="menu__item">
-                        <a class="menu__link link current" href="">Home</a>
-                    </li>
-                    <li class="menu__item">
-                        <a class="menu__link link" href="">my library</a>
-                    </li>
-
-                </ul>
-            </nav>
-        </div>
-        <div class="header-search">
-            <form class="search-form">
-                <input class="input-search" type="text" placeholder="Search a movie" data-input="input" />
-                <svg class="input-search__icon-search" width="12" height="12">
-                    <use href="./images/sprite.svg#icon-search"></use>
-                </svg>
-            </form>
-
-            <ul class="btn-list list">
-                <li class="btn-list__item">
-                    <button class="btn-list__header">WATCHED</button>
-                </li>
-                <li class="btn-list__item">
-                    <button class="btn-list__header ">QUEUE</button>
-                </li>
-            </ul>
-        </div>
+  <div class="container header-container header-home">
+    <div class="header-info">
+      <div class="header_logo">
+        <a class="logo-svg link home-js" href="">
+          <svg width="24" height="24">
+            <use href="./images/sprite.svg#icon-film"></use>
+          </svg>
+          <span class="logo">Filmoteka</span>
+        </a>
+      </div>
+      <nav class="navigation">
+        <ul class="menu list">
+          <li class="menu__item">
+            <a class="menu__link link current logo-home-js" href="">Home</a>
+          </li>
+          <li class="menu__item">
+            <a class="menu__link link library-js" href="">my library</a>
+          </li>
+        </ul>
+      </nav>
     </div>
+    <div class="header-search">
+      <form class="search-form">
+        <input class="input-search" type="text" placeholder="Search a movie" data-input="input" />
+        <svg class="input-search__icon-search" width="12" height="12">
+          <use href="./images/sprite.svg#icon-search"></use>
+        </svg>
+      </form>
+
+      <ul class="btn-list btn-list__header list">
+        <li class="btn-list__item">
+          <button class="button" data-action="watched">watched</button>
+        </li>
+        <li class="btn-list__item">
+          <button class="button" data-action="queue">queue</button>
+        </li>
+      </ul>
+    </div>
+  </div>
 </header>
