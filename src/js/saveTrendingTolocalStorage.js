@@ -2,7 +2,7 @@ import ApiService from './api-service.js';
 export const STORAGE_KEY_TRENDING = 'trending';
 const newApiService = new ApiService();
 
-async function saveTrendingToLocalStorage() {
+export async function saveTrendingToLocalStorage() {
   try {
     const data = await newApiService.fetchTrendingMovies();
 
@@ -11,4 +11,3 @@ async function saveTrendingToLocalStorage() {
     console.log(error);
   }
 }
-saveTrendingToLocalStorage();
