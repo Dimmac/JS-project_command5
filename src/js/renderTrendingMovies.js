@@ -9,7 +9,7 @@ const newApiService = new ApiService();
 
 const galleryEl = document.querySelector('.film__list');
 
-export default async function renderGalleryTrendingMovie() {
+export async function renderGalleryTrendingMovie() {
   try {
     const {
       page,
