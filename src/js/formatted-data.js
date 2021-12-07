@@ -36,7 +36,7 @@ export function formatData(data) {
 
     item.popularity = Number(item.popularity).toFixed(1);
   });
-  console.log(data);
+  // console.log(data);
   return data;
 }
 

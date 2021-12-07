@@ -6,7 +6,7 @@ import { saveTrendingToLocalStorage, STORAGE_KEY_TRENDING } from './saveTrending
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 
-const NewApiService = new ApiService();
+const newApiService = new ApiService();
 
 const galleryEl = document.querySelector('.film__list');
 
@@ -28,9 +28,9 @@ pagination.on('afterMove', ({ page }) => {
   renderGalleryTrendingMovie(page);
 });
 
-async function renderGalleryTrendingMovie(page) {
+export default async function renderGalleryTrendingMovie(page) {
   try {
-    const response = await NewApiService.fetchTrendingMovies(page);
+    const response = await newApiService.fetchTrendingMovies(page);
     const formattedData = formatData(response.results);
     const markup = filmGallery(formattedData);
     galleryEl.insertAdjacentHTML('beforeend', markup);
