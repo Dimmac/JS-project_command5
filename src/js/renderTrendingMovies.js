@@ -28,7 +28,7 @@ pagination.on('afterMove', ({ page }) => {
   renderGalleryTrendingMovie(page);
 });
 
-export default async function renderGalleryTrendingMovie(page) {
+export async function renderGalleryTrendingMovie(page) {
   try {
     const response = await newApiService.fetchTrendingMovies(page);
     const formattedData = formatData(response.results);

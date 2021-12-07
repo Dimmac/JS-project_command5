@@ -15,12 +15,7 @@ function renderGalleryMovieForQuery(e) {
   try {
     newApiService.query = e.currentTarget.elements.searchQuery.value.trim();
 
-    newApiService
-      .fetchMovieForQuery(newApiService.query)
-      .then(showMovie)
-      .catch(error => {
-        Notiflix.Notify.failure(`Sorry, there are movie not finding. Please try again`);
-      });
+    newApiService.fetchMovieForQuery(newApiService.query).then(showMovie).catch(console.log);
 
     if (newApiService.query === '') {
       Notiflix.Notify.failure('Sorry, there are movie not finding. Please try again.');
@@ -37,6 +32,7 @@ function showMovie(data) {
   galleryEl.innerHTML = markup;
   if (data.results.length < 1) {
     Notiflix.Notify.failure('Sorry, there are movie not finding. Please try again.');
+    formEL.reset();
     return;
   }
 }
