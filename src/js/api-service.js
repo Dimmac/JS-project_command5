@@ -7,10 +7,13 @@ export default class ApiService {
     this.pageNum = 1;
     this.searchValue = '';
     this.movieId;
+    this.searchType = 'trending';
   }
 
-  async fetchTrendingMovies(page) {
-    const response = await axios.get(`/3/trending/movie/day?api_key=${API_KEY}&page=${page}`);
+  async fetchTrendingMovies() {
+    const response = await axios.get(
+      `/3/trending/movie/day?api_key=${API_KEY}&page=${this.pageNum}`,
+    );
     // this.pageAdd();
     return response.data;
   }
