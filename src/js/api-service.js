@@ -38,7 +38,7 @@ export default class ApiService {
   }
 
   resetPage() {
-    this.pageNum = 1;
+    return this.pageNum;
   }
 
   removePage() {
