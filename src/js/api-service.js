@@ -6,13 +6,12 @@ export default class ApiService {
   constructor() {
     this.pageNum = 1;
     this.searchValue = '';
+    this.movieId;
   }
 
-  async fetchTrendingMovies() {
-    const response = await axios.get(
-      `/3/trending/movie/day?api_key=${API_KEY}&page=${this.pageNum}`,
-    );
-    this.pageAdd();
+  async fetchTrendingMovies(page) {
+    const response = await axios.get(`/3/trending/movie/day?api_key=${API_KEY}&page=${page}`);
+    // this.pageAdd();
     return response.data;
   }
 
@@ -28,8 +27,9 @@ export default class ApiService {
     return response.data;
   }
 
-  async fetchMovieById(id) {
-    const response = await axios.get(`/3/movie/${id}?api_key=${API_KEY}&language=en-US`);
+  async fetchMovieById() {
+    const response = await axios.get(`/3/movie/${this.movieId}?api_key=${API_KEY}`);
+
     return response.data;
   }
 
@@ -38,7 +38,7 @@ export default class ApiService {
   }
 
   resetPage() {
-    this.pageNum = 1;
+    return this.pageNum;
   }
 
   removePage() {

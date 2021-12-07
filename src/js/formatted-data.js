@@ -1,5 +1,5 @@
 import { STORAGE_KEY_GENRES } from './get-genres';
-
+import onOpenModalFilmCard from './modal-card.js';
 export function formatData(data) {
   const savedGenres = localStorage.getItem(STORAGE_KEY_GENRES);
   const parsedGenres = JSON.parse(savedGenres);
@@ -36,6 +36,9 @@ export function formatData(data) {
 
     item.popularity = Number(item.popularity).toFixed(1);
   });
-  console.log(data);
+  // console.log(data);
   return data;
 }
+
+const filmList = document.querySelector('.js-film-list');
+filmList.addEventListener('click', onOpenModalFilmCard);
