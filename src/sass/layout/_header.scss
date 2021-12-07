@@ -230,22 +230,24 @@ body {
   transition: all 500ms ease-in-out;
 }
 
-.toolbar {
-  display: flex;
-  justify-content: flex-end;
-  padding-top: 10px;
-  padding-right: 10px;
-}
+// .toolbar {
+//   display: flex;
+//   justify-content: flex-end;
+//   padding-top: 10px;
+//   padding-right: 10px;
+// }
 
 .theme-switch {
   display: flex;
   align-items: center;
+  position: absolute;
+  left: 84%;
 }
 
 .theme-switch__icon {
-  color: var(--accent-color);
-  height: 18px;
-  width: 18px;
+  fill: var(--accent-color);
+  height: 20px;
+  width: 20px;
   margin-right: 4px;
   margin-left: 4px;
 }
@@ -275,13 +277,13 @@ body {
 
 .theme-switch__track {
   position: absolute;
-  left: 0;
+  right: 0;
   top: 0;
   width: 100%;
   height: 100%;
   color: transparent;
   user-select: none;
-  background-color: #333;
+  background-color: gray;
   border-radius: inherit;
   z-index: 1;
   cursor: pointer;
@@ -289,9 +291,10 @@ body {
 
 .theme-switch__marker {
   position: relative;
+  right: 0;
   background-color: white;
-  width: 15px;
-  height: 15px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   z-index: 2;
   pointer-events: none;
@@ -301,15 +304,15 @@ body {
 }
 
 .theme-switch__toggle:checked + .theme-switch__track {
-  background-color: #323232;
+  background-color: #5c5b5b;
 }
 
 .theme-switch__toggle:checked ~ .theme-switch__marker {
-  transform: translateX(15px);
+  transform: translateX(16px);
 }
 
-.active-btn {
-  border: 1px solid #ff6b01;
-  color: white;
-  background-color: #ff6b01;
-}
+// .active-btn {
+//   border: 1px solid #ff6b01;
+//   color: white;
+//   background-color: #ff6b01;
+// }

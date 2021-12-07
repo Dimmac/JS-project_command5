@@ -1,6 +1,6 @@
 
 
-const toTop = document.querySelector('.scrollup');
+const toTop = document.querySelector('.to-top');
 
 
 window.addEventListener('scroll', () => {
