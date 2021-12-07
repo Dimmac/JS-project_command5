@@ -55,7 +55,7 @@ import { fetchrenderGalleryMovieForQuery } from './renderMovieForQuery';
 import { formatData } from './formatted-data';
 import { formEl } from './renderMovieForQuery';
 import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
+// import 'tui-pagination/dist/tui-pagination.css'; добавлены в сасс компоненты
 import filmGallery from '../templates/film-card.hbs';
 import { galleryEl } from './renderMovieForQuery';
 import { saveTrendingToLocalStorage } from './saveTrendingTolocalStorage';
