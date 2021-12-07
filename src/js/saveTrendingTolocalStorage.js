@@ -9,3 +9,13 @@ export async function saveTrendingToLocalStorage(formattedData) {
     console.log(error);
   }
 }
+
+export async function parseTrendingForLocalStorage() {
+  try {
+    const saveData = localStorage.getItem(STORAGE_KEY_TRENDING);
+    const parseData = JSON.parse(saveData);
+    return parseData;
+  } catch (error) {
+    console.log(error);
+  }
+}

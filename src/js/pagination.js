@@ -1,53 +1,3 @@
-// import Pagination from 'tui-pagination';
-// import 'tui-pagination/dist/tui-pagination.css';
-
-// import ApiService from './api-service.js';
-
-// import { renderGalleryTrendingMovie } from './renderTrendingMovies.js';
-
-// const newApiService = new ApiService();
-// const container = document.getElementById('pagination');
-
-// const options = {
-//   //   totalItems: 20000,
-//   //   itemsPerPage: 10,
-//   visiblePages: 9,
-//   page: 1,
-// };
-
-// const pagination = new Pagination(container, options);
-
-// const page = pagination.getCurrentPage();
-
-// newApiService.fetchTrendingMovies(page).then(({ results, total_results }) => {
-//   renderGalleryTrendingMovie(results);
-//   pagination.reset(total_results);
-// });
-
-// pagination.on('afterMove', ({ page }) => {
-//   console.log(page);
-//   newApiService.fetchTrendingMovies(page).then(({ results }) => {
-//     console.log(results);
-//     renderGalleryTrendingMovie(results);
-//   });
-// });
-// //  ----------------------------------
-
-// const options = {
-//   page: 1,
-//   visiblePages: 9,
-//   template: {
-//     currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
-//   },
-//   // currentPage: 'page',
-// };
-
-// const pagination = new Pagination(container, options);
-// const page = pagination.getCurrentPage();
-
-// pagination.on('afterMove', ({ page }) => {
-//   renderGalleryTrendingMovie(page);
-// });
 import ApiService from './api-service.js';
 import { fetchPopularMovies } from './api-service';
 import { renderGalleryTrendingMovie } from './renderTrendingMovies';
@@ -59,13 +9,7 @@ import 'tui-pagination/dist/tui-pagination.css';
 import filmGallery from '../templates/film-card.hbs';
 import { galleryEl } from './renderMovieForQuery';
 import { saveTrendingToLocalStorage } from './saveTrendingTolocalStorage';
-
-// export const paginationContainer = {
-//   startPage: 1,
-//   searchType: null,
-//   pagination: null,
-// };
-
+import { searchQueryApiService } from './renderMovieForQuery';
 export const initPagination = ({ page, itemsPerPage, totalItems }) => {
   const options = {
     page,
@@ -97,9 +41,13 @@ export const initPagination = ({ page, itemsPerPage, totalItems }) => {
         console.log(error);
       }
     } else if (ApiService.searchType === 'search') {
+      searchQueryApiService.pageNum = page;
       try {
-        const results = await newApiService.fetchMovieForQuery();
-        const formattedData = formatData(results);
+        const response = await searchQueryApiService.fetchMovieForQuery();
+        const formattedData = formatData(response.results);
+        const markup = filmGallery(formattedData);
+        galleryEl.innerHTML = '';
+        galleryEl.insertAdjacentHTML('afterbegin', markup);
       } catch (error) {
         console.log(error);
       }
