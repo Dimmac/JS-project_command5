@@ -7,7 +7,7 @@ export default class ApiService {
     this.pageNum = 1;
     this.searchValue = '';
     this.movieId;
-    this.searchType = 'trending';
+    this.searchType = 'popular';
   }
 
   async fetchTrendingMovies() {

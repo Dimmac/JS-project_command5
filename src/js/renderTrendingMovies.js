@@ -5,8 +5,8 @@ import { initPagination } from './pagination.js';
 
 import { saveTrendingToLocalStorage, STORAGE_KEY_TRENDING } from './saveTrendingTolocalStorage';
 
-const newApiService = new ApiService();
-
+const trendingApiService = new ApiService();
+export let pagination = null;
 const galleryEl = document.querySelector('.film__list');
 
 export async function renderGalleryTrendingMovie() {
@@ -15,10 +15,10 @@ export async function renderGalleryTrendingMovie() {
       page,
       results,
       total_results: totalResults,
-    } = await newApiService.fetchTrendingMovies();
+    } = await trendingApiService.fetchTrendingMovies();
     const formattedData = formatData(results);
     const markup = filmGallery(formattedData);
-    initPagination({ page, itemsPerPage: results.length, totalItems: totalResults });
+    pagination = initPagination({ page, itemsPerPage: results.length, totalItems: totalResults });
     ApiService.searchType = 'popular';
     galleryEl.insertAdjacentHTML('beforeend', markup);
 
