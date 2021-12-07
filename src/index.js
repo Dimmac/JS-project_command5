@@ -4,3 +4,5 @@ import './js/renderTrendingMovies.js';
 import './js/get-genres';
 // import './js/saveTrendingTolocalStorage';
 import { onHomeClick, onLibraryClick } from './js/header-logic';
+import './js/thems';
+import './js/toTop';
