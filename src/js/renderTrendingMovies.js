@@ -2,23 +2,44 @@ import ApiService from './api-service.js';
 import filmGallery from '../templates/film-card.hbs';
 import { formatData } from './formatted-data';
 import { saveTrendingToLocalStorage, STORAGE_KEY_TRENDING } from './saveTrendingTolocalStorage';
+import Pagination from 'tui-pagination';
+import 'tui-pagination/dist/tui-pagination.css';
+
 const NewApiService = new ApiService();
 
 const galleryEl = document.querySelector('.film__list');
 
-// NewApiService.fetchTrendingMovies().then(renderGalleryTrendingMovie);
-// NewApiService.fetchGenre().then(results => console.log(results));
-// NewApiService.fetchMovieById(2).then(results => console.log(results));
-//uncomment when will be in work
-//need pass NewApiService.query;
-// NewApiService.fetchMovieForQuery().then(results => console.log(results));
+const container = document.getElementById('pagination');
 
-export function renderGalleryTrendingMovie(data) {
-  const formattedData = formatData(data.results);
-  const markup = filmGallery(formattedData);
-  galleryEl.insertAdjacentHTML('beforeend', markup);
+const options = {
+  page: 1,
+  visiblePages: 9,
+  template: {
+    currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+  },
+  // currentPage: 'page',
+};
+
+const pagination = new Pagination(container, options);
+const page = pagination.getCurrentPage();
+
+pagination.on('afterMove', ({ page }) => {
+  renderGalleryTrendingMovie(page);
+});
+
+async function renderGalleryTrendingMovie(page) {
+  try {
+    const response = await NewApiService.fetchTrendingMovies(page);
+    const formattedData = formatData(response.results);
+    const markup = filmGallery(formattedData);
+    galleryEl.insertAdjacentHTML('beforeend', markup);
+    // galleryEl.innerHTML = markup;
+
+    pagination.reset(response.total_pages);
+    saveTrendingToLocalStorage(formattedData);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
-NewApiService.fetchTrendingMovies()
-  .then(renderGalleryTrendingMovie)
-  .then(saveTrendingToLocalStorage);
+renderGalleryTrendingMovie(page);
