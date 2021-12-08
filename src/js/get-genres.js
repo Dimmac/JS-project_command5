@@ -1,5 +1,6 @@
 import ApiService from './api-service.js';
-export const STORAGE_KEY_GENRES = 'genres';
+import { STORAGE_KEY_GENRES } from './keys-local-storage';
+
 const newApiService = new ApiService();
 
 async function getGenresData() {
