@@ -20,6 +20,8 @@
         </ul>
       </nav>
     </div>
+
+
     <div class="header-search">
       <form class="search-form" autocomplete="off">
         <input
@@ -36,6 +38,7 @@
         </button>
       </form>
 
+
       <ul class="btn-list btn-list__header list">
         <li class="btn-list__item">
           <button class="button" data-action="watched">watched</button>
@@ -45,5 +48,24 @@
         </li>
       </ul>
     </div>
+
+
+    
+      <div class="theme-switch">
+        <svg class="theme-switch__icon" aria-label="Sun">
+          <use href="./images/sprite.svg#icon-sun"></use>
+        </svg>
+      
+        <div class="theme-switch__control">
+          <input class="theme-switch__toggle" type="checkbox" name="theme" id="theme-switch-toggle"
+            aria-label="light or dark theme" />
+          <label aria-hidden="true" class="theme-switch__track" for="theme-switch-toggle"> </label>
+          <div aria-hidden="true" class="theme-switch__marker"></div>
+        </div>
+      
+        <svg class="theme-switch__icon" aria-label="Moon">
+          <use href="./images/sprite.svg#icon-moon_icon"></use>
+        </svg>
+      </div>
   </div>
 </header>
