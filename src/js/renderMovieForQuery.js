@@ -18,11 +18,11 @@ function renderGalleryMovieForQuery(e) {
   console.log(searchQueryApiService.query);
   searchQueryApiService
     .fetchMovieForQuery(searchQueryApiService.query)
-    .then(data => {
-      pagination.reset();
+    .then(({ results, total_results: totalResults }) => {
+      pagination.reset(totalResults);
       ApiService.searchType = 'search';
       searchQueryApiService.pageNum = 1;
-      showMovie(data);
+      showMovie(results);
     })
     .catch(console.log);
 
@@ -34,12 +34,12 @@ function renderGalleryMovieForQuery(e) {
 formEL.reset();
 
 function showMovie(data) {
-  if (data.results.length < 1) {
+  if (data.length < 1) {
     Notiflix.Notify.failure('Sorry, there are movie not finding. Please try again.');
     formEL.reset();
     return;
   }
-  const formattedData = formatData(data.results);
+  const formattedData = formatData(data);
   const markup = filmGallery(formattedData);
   galleryEl.innerHTML = markup;
 }

@@ -3,7 +3,7 @@ import filmGallery from '../templates/film-card.hbs';
 import { formatData } from './formatted-data';
 import { initPagination } from './pagination.js';
 
-import { saveTrendingToLocalStorage, STORAGE_KEY_TRENDING } from './saveTrendingTolocalStorage';
+import { saveDataToLocalStorage } from './saveTrendingTolocalStorage';
 
 const trendingApiService = new ApiService();
 export let pagination = null;
@@ -22,7 +22,7 @@ export async function renderGalleryTrendingMovie() {
     ApiService.searchType = 'popular';
     galleryEl.insertAdjacentHTML('beforeend', markup);
 
-    saveTrendingToLocalStorage(formattedData);
+    saveDataToLocalStorage('home', formattedData);
   } catch (error) {
     console.log(error);
   }

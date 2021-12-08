@@ -1,6 +1,7 @@
+import * as basicLightbox from 'basiclightbox';
+import 'basiclightbox/src/styles/main.scss';
 import ApiService from './api-service';
 import modalCard from '../templates/modal-card.hbs';
-import * as basicLightbox from 'basiclightbox';
 
 const apiService = new ApiService();
 
