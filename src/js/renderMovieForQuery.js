@@ -30,8 +30,8 @@ function renderGalleryMovieForQuery(e) {
     Notiflix.Notify.failure('Please enter a movie name.');
     return;
   }
+  formEL.reset();
 }
-formEL.reset();
 
 function showMovie(data) {
   if (data.length < 1) {
