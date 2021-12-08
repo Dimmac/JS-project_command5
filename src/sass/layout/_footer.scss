@@ -29,3 +29,41 @@
   text-decoration: underline;
   color: var(--text-color-footer);
 }
+
+//switcher
+
+.footer.dark-theme {
+  background-color: #292929;
+  color: rgb(128, 122, 122);
+  & .font {
+    color: rgb(202, 195, 195);
+    size: 20px;
+  }
+  & .goit-link {
+    color: rgb(248, 245, 245);
+    size: 22px;
+  }
+}
+
+.to-top {
+  background: var(--accent-color);
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  bottom: 10px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: 32px;
+  color: black;
+  opacity: 0;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.active {
+    bottom: 30px;
+    pointer-events: auto;
+    opacity: 1;
+  }
+}

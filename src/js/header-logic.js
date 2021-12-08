@@ -1,4 +1,3 @@
-// import { STORAGE_KEY_TRENDING } from './saveTrendingTolocalStorage';
 import { renderGalleryTrendingMovie } from './renderTrendingMovies';
 import filmGallery from '../templates/film-card.hbs';
 import { galleryEl } from './renderMovieForQuery';
@@ -6,6 +5,8 @@ import { formatData } from './formatted-data';
 import Notiflix from 'notiflix';
 import 'notiflix/dist/notiflix-3.2.2.min.css';
 import { saveDataToLocalStorage } from './saveTrendingTolocalStorage';
+import { STORAGE_KEY_HOME } from './keys-local-storage';
+import { STORAGE_KEY_MAIN } from './keys-local-storage';
 import { searchQueryApiService } from './renderMovieForQuery';
 import ApiService from './api-service.js';
 import { pagination } from './renderTrendingMovies';
@@ -69,14 +70,15 @@ function onHomeStateHeader() {
 
 export async function parseTrendingForLocalStorage() {
   try {
-    const saveData = localStorage.getItem('home');
+    const saveData = localStorage.getItem(STORAGE_KEY_HOME);
     const parseData = JSON.parse(saveData);
-    // const formattedData = formatData(parseData);
+    const formattedData = formatData(parseData);
     const markup = filmGallery(parseData);
     refs.galleryEl.innerHTML = '';
     refs.galleryEl.insertAdjacentHTML('afterbegin', markup);
     pagination.reset();
     newApiService.pageNum = 1;
+    saveDataToLocalStorage(STORAGE_KEY_MAIN, formattedData);
   } catch (error) {
     console.log(error);
   }

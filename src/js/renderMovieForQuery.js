@@ -4,7 +4,8 @@ import 'notiflix/dist/notiflix-3.2.2.min.css';
 import filmGallery from '../templates/film-card.hbs';
 import { formatData } from './formatted-data';
 import { pagination } from './renderTrendingMovies';
-
+import { saveDataToLocalStorage } from './saveTrendingTolocalStorage';
+import { STORAGE_KEY_MAIN } from './keys-local-storage';
 export const searchQueryApiService = new ApiService();
 export const galleryEl = document.querySelector('.film__list');
 export const formEL = document.querySelector('.search-form');
@@ -42,4 +43,5 @@ function showMovie(data) {
   const formattedData = formatData(data);
   const markup = filmGallery(formattedData);
   galleryEl.innerHTML = markup;
+  saveDataToLocalStorage(STORAGE_KEY_MAIN, formattedData);
 }
