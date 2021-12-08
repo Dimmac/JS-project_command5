@@ -6,7 +6,9 @@
     padding-bottom: 60px;
   }
 }
-
+.movies-title {
+  display: none;
+}
 // -------- Styles for movies ----------
 
 .film__list {
@@ -31,6 +33,16 @@
 
 .film__item {
   width: 100%;
+}
+.film__box {
+  margin: 0 auto;
+  width: 280px;
+  @include min-width('medium') {
+    width: 294px;
+  }
+  @include min-width('large') {
+    width: 274px;
+  }
 }
 
 .film__box-img {
@@ -83,12 +95,6 @@
   color: var(--accent-color);
 }
 
-// .box-info__date {
-//   font-family: var(--main-font);
-//   @include font($fs: 12px, $fw: 500, $lh: 16px);
-
-//   border-left: 1px solid var(--accent-color);
-// }
 .box-info__rating {
   font-family: var(--main-font);
   color: var(--text-color-light);
