@@ -1,5 +1,14 @@
-import { STORAGE_KEY_TRENDING } from './saveTrendingTolocalStorage';
+// import { STORAGE_KEY_TRENDING } from './saveTrendingTolocalStorage';
 import { renderGalleryTrendingMovie } from './renderTrendingMovies';
+import filmGallery from '../templates/film-card.hbs';
+import { galleryEl } from './renderMovieForQuery';
+import { formatData } from './formatted-data';
+import Notiflix from 'notiflix';
+import 'notiflix/dist/notiflix-3.2.2.min.css';
+import { saveDataToLocalStorage } from './saveTrendingTolocalStorage';
+import { searchQueryApiService } from './renderMovieForQuery';
+import ApiService from './api-service.js';
+import { pagination } from './renderTrendingMovies';
 
 const refs = {
   homeEl: document.querySelector('.logo-home-js'),
@@ -10,23 +19,28 @@ const refs = {
   watchedBtn: document.querySelector('button[data-action="watched"]'),
   queueBtn: document.querySelector('button[data-action="queue"]'),
   formEl: document.querySelector('.search-form'),
+  paginationDiv: document.querySelector('#pagination'),
+  galleryEl: document.querySelector('.film__list'),
 };
 
 refs.homeEl.addEventListener('click', onHomeClick);
 refs.logoHomeEl.addEventListener('click', onHomeClick);
 refs.myLibraryEl.addEventListener('click', onLibraryClick);
 
+const newApiService = new ApiService();
+
 function onHomeClick(e) {
   e.preventDefault();
   onHomeStateHeader();
-  const savedTrending = localStorage.getItem(STORAGE_KEY_TRENDING);
-  const parsedTrending = JSON.parse(savedTrending);
-  renderGalleryTrendingMovie(parsedTrending);
+  parseTrendingForLocalStorage();
 }
 
 function onLibraryClick(e) {
   e.preventDefault();
   onLibraryStateHeader();
+  galleryEl.innerHTML = '';
+  refs.paginationDiv.classList.add('visually-hidden');
+  Notiflix.Notify.info('Sorry, sorry you have not added anything yet');
   // refs.headerEl.classList.add('.header-container-library');
 }
 
@@ -50,4 +64,20 @@ function onHomeStateHeader() {
   refs.btns.classList.add('btn-list__header');
   refs.homeEl.classList.add('current');
   refs.myLibraryEl.classList.remove('current');
+  refs.paginationDiv.classList.remove('visually-hidden');
+}
+
+export async function parseTrendingForLocalStorage() {
+  try {
+    const saveData = localStorage.getItem('home');
+    const parseData = JSON.parse(saveData);
+    // const formattedData = formatData(parseData);
+    const markup = filmGallery(parseData);
+    refs.galleryEl.innerHTML = '';
+    refs.galleryEl.insertAdjacentHTML('afterbegin', markup);
+    pagination.reset();
+    newApiService.pageNum = 1;
+  } catch (error) {
+    console.log(error);
+  }
 }

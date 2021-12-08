@@ -5,10 +5,10 @@ import { fetchrenderGalleryMovieForQuery } from './renderMovieForQuery';
 import { formatData } from './formatted-data';
 import { formEl } from './renderMovieForQuery';
 import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
+// import 'tui-pagination/dist/tui-pagination.css'; добавлены в сасс компоненты
 import filmGallery from '../templates/film-card.hbs';
 import { galleryEl } from './renderMovieForQuery';
-import { saveTrendingToLocalStorage } from './saveTrendingTolocalStorage';
+import { saveDataToLocalStorage } from './saveTrendingTolocalStorage';
 import { searchQueryApiService } from './renderMovieForQuery';
 export const initPagination = ({ page, itemsPerPage, totalItems }) => {
   const options = {
@@ -36,7 +36,12 @@ export const initPagination = ({ page, itemsPerPage, totalItems }) => {
         galleryEl.innerHTML = '';
         galleryEl.insertAdjacentHTML('afterbegin', markup);
 
-        saveTrendingToLocalStorage(formattedData);
+        for (page = 1; page < response.results.length; i += 1) {
+          if (newApiService.pageNum !== 1) {
+            saveDataToLocalStorage('main', formattedData);
+            return;
+          }
+        }
       } catch (error) {
         console.log(error);
       }
