@@ -241,7 +241,18 @@ body {
   display: flex;
   align-items: center;
   position: absolute;
-  left: 84%;
+
+  @media screen and (max-width: 767px) {
+    left: 25%;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    left: 20%;
+  }
+
+  @media screen and (min-width: 1024x) {
+    left: 0;
+  }
 }
 
 .theme-switch__icon {

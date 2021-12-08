@@ -35,11 +35,13 @@
 .footer.dark-theme {
   background-color: #292929;
   color: rgb(128, 122, 122);
-  &.footer-btn {
-    color: fff;
+  & .font {
+    color: rgb(202, 195, 195);
+    size: 20px;
   }
-  & .footer__font {
-    color: white;
+  & .goit-link {
+    color: rgb(248, 245, 245);
+    size: 22px;
   }
 }
 
