@@ -1,9 +1,5 @@
-.header {
-  min-width: 1024px;
-}
-
 .header-home {
-  min-height: 230px;
+  height: 230px;
   width: 100%;
 
   @media screen and (max-width: 767px) {
@@ -240,25 +236,26 @@ body {
 .theme-switch {
   display: flex;
   align-items: center;
-  position: absolute;
+  position: relative;
+  top: 10px;
+  right: 5px;
+  // @media screen and (max-width: 767px) {
+  //   left: 15%;
+  // }
 
-  @media screen and (max-width: 767px) {
-    left: 25%;
-  }
+  // @media screen and (min-width: 768px) and (max-width: 1023px) {
+  //   left: 20%;
+  // }
 
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
-    left: 20%;
-  }
-
-  @media screen and (min-width: 1024x) {
-    left: 0;
-  }
+  // @media screen and (min-width: 1024x) {
+  //   left: 0;
+  // }
 }
 
 .theme-switch__icon {
   fill: var(--accent-color);
-  height: 20px;
-  width: 20px;
+  height: 15px;
+  width: 15px;
   margin-right: 4px;
   margin-left: 4px;
 }
