@@ -1,4 +1,4 @@
-import { STORAGE_KEY_GENRES } from './get-genres';
+import { STORAGE_KEY_GENRES } from './keys-local-storage';
 import onOpenModalFilmCard from './modal-card.js';
 export function formatData(data) {
   const savedGenres = localStorage.getItem(STORAGE_KEY_GENRES);

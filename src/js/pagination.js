@@ -5,9 +5,9 @@ import { fetchrenderGalleryMovieForQuery } from './renderMovieForQuery';
 import { formatData } from './formatted-data';
 import { formEl } from './renderMovieForQuery';
 import Pagination from 'tui-pagination';
-// import 'tui-pagination/dist/tui-pagination.css'; добавлены в сасс компоненты
 import filmGallery from '../templates/film-card.hbs';
 import { galleryEl } from './renderMovieForQuery';
+import { STORAGE_KEY_MAIN } from './keys-local-storage';
 import { saveDataToLocalStorage } from './saveTrendingTolocalStorage';
 import { searchQueryApiService } from './renderMovieForQuery';
 export const initPagination = ({ page, itemsPerPage, totalItems }) => {
@@ -38,7 +38,7 @@ export const initPagination = ({ page, itemsPerPage, totalItems }) => {
 
         for (page = 1; page < response.results.length; i += 1) {
           if (newApiService.pageNum !== 1) {
-            saveDataToLocalStorage('main', formattedData);
+            saveDataToLocalStorage(STORAGE_KEY_MAIN, formattedData);
             return;
           }
         }
@@ -53,6 +53,7 @@ export const initPagination = ({ page, itemsPerPage, totalItems }) => {
         const markup = filmGallery(formattedData);
         galleryEl.innerHTML = '';
         galleryEl.insertAdjacentHTML('afterbegin', markup);
+        saveDataToLocalStorage(STORAGE_KEY_MAIN, formattedData);
       } catch (error) {
         console.log(error);
       }
