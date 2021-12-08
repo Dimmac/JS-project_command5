@@ -1,5 +1,12 @@
-import { STORAGE_KEY_TRENDING } from './saveTrendingTolocalStorage';
 import { renderGalleryTrendingMovie } from './renderTrendingMovies';
+import { formatData } from './formatted-data';
+import ApiService from './api-service.js';
+import filmGallery from '../templates/film-card.hbs';
+import { galleryEl } from './renderMovieForQuery';
+import { saveDataToLocalStorage } from './saveTrendingTolocalStorage';
+import { searchQueryApiService } from './renderMovieForQuery';
+const newApiService = new ApiService();
+import { pagination } from './renderTrendingMovies';
 
 const refs = {
   homeEl: document.querySelector('.logo-home-js'),
@@ -10,6 +17,7 @@ const refs = {
   watchedBtn: document.querySelector('button[data-action="watched"]'),
   queueBtn: document.querySelector('button[data-action="queue"]'),
   formEl: document.querySelector('.search-form'),
+  galleryEl: document.querySelector('.film__list'),
 };
 
 refs.homeEl.addEventListener('click', onHomeClick);
@@ -19,9 +27,7 @@ refs.myLibraryEl.addEventListener('click', onLibraryClick);
 function onHomeClick(e) {
   e.preventDefault();
   onHomeStateHeader();
-  const savedTrending = localStorage.getItem(STORAGE_KEY_TRENDING);
-  const parsedTrending = JSON.parse(savedTrending);
-  renderGalleryTrendingMovie(parsedTrending);
+  parseTrendingForLocalStorage();
 }
 
 function onLibraryClick(e) {
@@ -50,4 +56,19 @@ function onHomeStateHeader() {
   refs.btns.classList.add('btn-list__header');
   refs.homeEl.classList.add('current');
   refs.myLibraryEl.classList.remove('current');
+}
+
+export async function parseTrendingForLocalStorage() {
+  try {
+    const saveData = localStorage.getItem('home');
+    const parseData = JSON.parse(saveData);
+    // const formattedData = formatData(parseData);
+    const markup = filmGallery(parseData);
+    refs.galleryEl.innerHTML = '';
+    refs.galleryEl.insertAdjacentHTML('afterbegin', markup);
+    pagination.reset();
+    newApiService.pageNum = 1;
+  } catch (error) {
+    console.log(error);
+  }
 }
