@@ -2,7 +2,7 @@ import ApiService from './api-service.js';
 import filmGallery from '../templates/film-card.hbs';
 import { formatData } from './formatted-data';
 import { initPagination } from './pagination.js';
-import { STORAGE_KEY_HOME } from './keys-local-storage';
+import { STORAGE_KEY_HOME, STORAGE_KEY_MAIN } from './keys-local-storage';
 import { saveDataToLocalStorage } from './saveTrendingTolocalStorage';
 
 const trendingApiService = new ApiService();
@@ -23,6 +23,7 @@ export async function renderGalleryTrendingMovie() {
     galleryEl.insertAdjacentHTML('beforeend', markup);
 
     saveDataToLocalStorage(STORAGE_KEY_HOME, formattedData);
+    saveDataToLocalStorage(STORAGE_KEY_MAIN, formattedData);
   } catch (error) {
     console.log(error);
   }

@@ -1,11 +1,7 @@
+import { Theme } from './keys-local-storage';
+
 const toggleRef = document.querySelector('#theme-switch-toggle');
 const footerRef = document.querySelector('.footer');
-
-// storing theme preferences:
-const Theme = {
-  LIGHT: 'light-theme',
-  DARK: 'dark-theme',
-};
 
 toggleRef.addEventListener('change', onThemeChange);
 // checking theme on page load:
