@@ -229,3 +229,8 @@
   padding: 8px 0 6px;
   vertical-align: top;
 }
+
+.dark-theme .tui-pagination .tui-page-btn {
+  color: #fff;
+  border: 1px solid var(--accent-color);
+}
