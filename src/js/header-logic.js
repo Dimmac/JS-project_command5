@@ -1,5 +1,8 @@
 import { STORAGE_KEY_TRENDING } from './saveTrendingTolocalStorage';
 import { renderGalleryTrendingMovie } from './renderTrendingMovies';
+import { galleryEl } from './renderMovieForQuery';
+import Notiflix from 'notiflix';
+import 'notiflix/dist/notiflix-3.2.2.min.css';
 
 const refs = {
   homeEl: document.querySelector('.logo-home-js'),
@@ -10,6 +13,7 @@ const refs = {
   watchedBtn: document.querySelector('button[data-action="watched"]'),
   queueBtn: document.querySelector('button[data-action="queue"]'),
   formEl: document.querySelector('.search-form'),
+  paginationDiv: document.querySelector('#pagination'),
 };
 
 refs.homeEl.addEventListener('click', onHomeClick);
@@ -27,6 +31,9 @@ function onHomeClick(e) {
 function onLibraryClick(e) {
   e.preventDefault();
   onLibraryStateHeader();
+  galleryEl.innerHTML = '';
+  refs.paginationDiv.classList.add('visually-hidden');
+  Notiflix.Notify.info('Sorry, sorry you have not added anything yet');
   // refs.headerEl.classList.add('.header-container-library');
 }
 
