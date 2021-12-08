@@ -110,4 +110,4 @@ const e=document.querySelector(".to-top");window.addEventListener("scroll",()=>{
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/pagination"),require("./js/renderTrendingMovies.js"),require("./js/get-genres"),require("./js/renderMovieForQuery.js");var e=require("./js/header-logic");require("./js/thems"),require("./js/toTop");
 },{"./sass/main.scss":"clu1","./js/pagination":"o8lo","./js/renderTrendingMovies.js":"hOC4","./js/get-genres":"RCw5","./js/renderMovieForQuery.js":"cQZk","./js/header-logic":"h3xw","./js/thems":"JyJ9","./js/toTop":"z1HG"}]},{},["Focm"], null)
-//# sourceMappingURL=/JS-project_command5/src.2df1d6c0.js.map
+//# sourceMappingURL=/JS-project_command5/src.67288c93.js.map
