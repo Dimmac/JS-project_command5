@@ -62,8 +62,15 @@
 
     <!-- modal buttons -->
     <div class='modal__btn-wrapper'>
-      <button class='modal__btn js-btn__watched' type='button' data-id='{{id}}'>add to watched</button>
-      <button class='modal__btn js-btn__queue' type='button' data-id='{{id}}'>add to queue</button>
+      <button class='modal__btn js-btn__watched' type='button' data-id='{{id}}' data-action="spinner">
+        <span class="loading-w" role="status" aria-hidden="true"></span>
+        <span class="label-w">add to watched</span>
+      </button>
+      <button class='modal__btn js-btn__queue' type='button' data-id='{{id}}' data-action="spinner">
+        <span class="loading-q" role="status" aria-hidden="true"></span>
+        <span class="label-q">add to queue</span>
+      </button>
+    
     </div>
   </div>
 
