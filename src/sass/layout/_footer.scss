@@ -34,7 +34,7 @@
 //switcher
 
 .footer.dark-theme {
-  background-color: #292929;
+  background-color: var(--background-dark-theme-footer);
   color: rgb(128, 122, 122);
   & .font {
     color: rgb(202, 195, 195);
