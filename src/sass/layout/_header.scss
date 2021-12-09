@@ -1,25 +1,20 @@
-.header-home {
+.header {
   height: 230px;
   width: 100%;
 
-  @media screen and (max-width: 767px) {
+  @include max-width('medium') {
     background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
       url(../images/mobile/mobile2x-min.png);
     min-width: 320px;
-    padding: 53px 20px;
   }
 
-  @media screen and (min-width: 768px) {
+  @include min-width('medium') {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/tablet/tablet2x-min.png);
     min-width: 768px;
-
-    padding-top: 41px;
-    padding-left: 75px;
-    padding-right: 75px;
   }
 
-  @media screen and (min-width: 1024px) {
+  @include min-width('large') {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/desktop/desktop2x-min.png);
   }
@@ -29,11 +24,27 @@
   background-size: cover;
 }
 
+.header-home {
+  height: 230px;
+
+  @media screen and (max-width: 767px) {
+    padding: 53px 10px;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding-top: 41px;
+    // padding-left: 75px;
+    // padding-right: 75px;
+  }
+
+  @media screen and (min-width: 1024px) {
+  }
+}
 .header-info {
   justify-content: center;
-  margin: auto;
+  // margin: auto;
   @media screen and (max-width: 767px) {
-    max-width: 280px;
+    // max-width: 280px;
   }
   @media screen and (min-width: 768px) {
     max-width: 638px;
@@ -126,8 +137,13 @@
   line-height: 1.17;
   caret-color: var(--text-color-light);
 }
+
+.btn-list {
+  margin-bottom: 26px;
+}
 .btn-list__header {
   display: none;
+  margin-bottom: 20px;
 }
 
 .btns-lib {
@@ -147,7 +163,6 @@
   }
   @media screen and (min-width: 768px) {
     display: flex;
-    justify-content: baseline;
     justify-content: space-between;
     align-items: baseline;
   }
@@ -205,14 +220,14 @@
 }
 
 .header-library {
-  width: 100%;
+  // width: 100%;
 
   @media screen and (max-width: 767px) {
     background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
       url(../images/mobile/2mobile2x-min.png);
     min-width: 320px;
 
-    padding-top: 53px;
+    // padding-top: 53px;
     height: 230px;
   }
 
@@ -221,9 +236,9 @@
       url(../images/tablet/2tablet2x-min.png);
     min-width: 768px;
 
-    padding-top: 41px;
-    padding-left: 75px;
-    padding-right: 75px;
+    // padding-top: 41px;
+    // padding-left: 75px;
+    // padding-right: 75px;
     height: 230px;
   }
 
