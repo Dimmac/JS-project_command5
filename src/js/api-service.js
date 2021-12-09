@@ -32,7 +32,13 @@ export default class ApiService {
 
   async fetchMovieById() {
     const response = await axios.get(`/3/movie/${this.movieId}?api_key=${API_KEY}`);
+    return response.data;
+  }
 
+  async fetchVideoMovies() {
+    const response = await axios.get(
+      `/3/movie/${this.movieId}/videos?api_key=${API_KEY}&language=en-US`,
+    );
     return response.data;
   }
 

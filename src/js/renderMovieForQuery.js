@@ -28,11 +28,11 @@ function renderGalleryMovieForQuery(e) {
     .catch(console.log);
 
   if (searchQueryApiService.query === '') {
-    Notiflix.Notify.failure('Sorry, there are movie not finding. Please try again.');
+    Notiflix.Notify.failure('Please enter a movie name.');
     return;
   }
+  formEL.reset();
 }
-formEL.reset();
 
 function showMovie(data) {
   if (data.length < 1) {
