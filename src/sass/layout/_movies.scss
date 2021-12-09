@@ -9,9 +9,7 @@
 .movies-title {
   display: none;
 }
-.annotation {
-  text-align: center;
-}
+
 // -------- Styles for movies ----------
 
 .film__list {
@@ -108,22 +106,27 @@
   background-color: var(--accent-color);
 }
 // -------- Styles for заглушка))) ----------
-.info-title {
-  display: none;
-  padding: 40px;
+.annotation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
   text-align: center;
-
-  border: 1px solid blue;
+  @include font($fs: 18px, $fw: 500, $lh: 24px);
+  // border: 1px solid var(--accent-color);
+  background-color: #4d3f3710;
   border-radius: 5px;
-  width: 280px;
-  height: 400px;
-
+  width: 100%;
+  height: 200px;
   @include min-width('medium') {
-    width: 600px;
+    @include font($fs: 28px, $fw: 500, $lh: 36px);
   }
+
   @include min-width('large') {
-    width: 900px;
+    @include font($fs: 34px, $fw: 500, $lh: 40px);
+    height: 360px;
   }
+  --animate-duration: 4s;
 }
 
 .dark-theme .box-info__title {

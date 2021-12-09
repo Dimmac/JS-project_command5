@@ -11,6 +11,7 @@ import { searchQueryApiService } from './renderMovieForQuery';
 import ApiService from './api-service.js';
 import { pagination } from './renderTrendingMovies';
 import swal from 'sweetalert';
+import 'animate.css';
 
 const refs = {
   homeEl: document.querySelector('.logo-home-js'),
@@ -45,7 +46,8 @@ function onLibraryClick(e) {
   galleryEl.innerHTML = '';
   refs.paginationDiv.classList.add('visually-hidden');
   refs.annotation.classList.remove('visually-hidden');
-  swal('Attention', 'Sorry, you have not added anything yet', 'info');
+  refs.annotation.classList.add('animate__zoomIn');
+  // swal('Attention', 'Sorry, you have not added anything yet', 'info');
   // Notiflix.Notify.info('Sorry, sorry you have not added anything yet');
   // refs.headerEl.classList.add('.header-container-library');
 }
