@@ -17,7 +17,7 @@ const refs = {
   homeEl: document.querySelector('.logo-home-js'),
   logoHomeEl: document.querySelector('.home-js'),
   myLibraryEl: document.querySelector('.library-js'),
-  headerEl: document.querySelector('.header-container'),
+  headerEl: document.querySelector('.header'),
   btns: document.querySelector('.btn-list '),
   watchedBtn: document.querySelector('button[data-action="watched"]'),
   queueBtn: document.querySelector('button[data-action="queue"]'),
@@ -66,7 +66,7 @@ function onLibraryStateHeader() {
 
 function onHomeStateHeader() {
   refs.headerEl.classList.remove('header-library');
-  refs.headerEl.classList.add('header-home');
+  refs.headerEl.classList.add('header');
   refs.formEl.style.display = 'block';
   refs.btns.classList.remove('btns-lib');
   refs.btns.classList.add('btn-list__header');
