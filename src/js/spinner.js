@@ -22,12 +22,12 @@ export default function mainSpinner() {
 
 function addSpinnerAfterClickW() {
   labelw.textContent = 'Loading...'
-  spinnerw.classList.add('spinner-grow', 'spinner-grow-sm')
+  spinnerw.classList.add('loader')
   
 }
 
 function addSpinnerAfterClickQ() {
   labelq.textContent = 'Loading...'
-  spinnerq.classList.add('spinner-grow', 'spinner-grow-sm')
+  spinnerq.classList.add('loader')
   
 }
