@@ -10,6 +10,7 @@ import { STORAGE_KEY_MAIN } from './keys-local-storage';
 import { searchQueryApiService } from './renderMovieForQuery';
 import ApiService from './api-service.js';
 import { pagination } from './renderTrendingMovies';
+import swal from 'sweetalert';
 
 const refs = {
   homeEl: document.querySelector('.logo-home-js'),
@@ -22,6 +23,7 @@ const refs = {
   formEl: document.querySelector('.search-form'),
   paginationDiv: document.querySelector('#pagination'),
   galleryEl: document.querySelector('.film__list'),
+  annotation: document.querySelector('#annotation'),
 };
 
 refs.homeEl.addEventListener('click', onHomeClick);
@@ -34,6 +36,7 @@ function onHomeClick(e) {
   e.preventDefault();
   onHomeStateHeader();
   parseTrendingForLocalStorage();
+  refs.annotation.classList.add('visually-hidden');
 }
 
 function onLibraryClick(e) {
@@ -41,7 +44,9 @@ function onLibraryClick(e) {
   onLibraryStateHeader();
   galleryEl.innerHTML = '';
   refs.paginationDiv.classList.add('visually-hidden');
-  Notiflix.Notify.info('Sorry, sorry you have not added anything yet');
+  refs.annotation.classList.remove('visually-hidden');
+  swal('Attention', 'Sorry, you have not added anything yet', 'info');
+  // Notiflix.Notify.info('Sorry, sorry you have not added anything yet');
   // refs.headerEl.classList.add('.header-container-library');
 }
 

@@ -35,10 +35,7 @@ export const initPagination = ({ page, itemsPerPage, totalItems }) => {
         const markup = filmGallery(formattedData);
         galleryEl.innerHTML = '';
         galleryEl.insertAdjacentHTML('afterbegin', markup);
-
-        for (page = 1; page < response.results.length; i += 1) {
-          saveDataToLocalStorage(STORAGE_KEY_MAIN, formattedData);
-        }
+        saveDataToLocalStorage(STORAGE_KEY_MAIN, formattedData);
       } catch (error) {
         console.log(error);
       }
