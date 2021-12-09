@@ -50,7 +50,11 @@
       <tr class='modal__table-text'>
         <td class='modal__table-property'>Genre</td>
         <td class='modal__table-quantity'>
-          <span class='text'>{{#each genres}}{{this.name}}{{/each}}</span>
+          <span class='text'>{{#each genres}}{{#if @last}}
+                {{this}}.
+              {{else}}
+                {{this}},
+              {{/if}}{{/each}}</span>
         </td>
       </tr>
     </table>
