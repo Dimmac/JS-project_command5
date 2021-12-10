@@ -11,10 +11,14 @@ let modal;
 let closeBtn;
 let movieId;
 
+
 const main = localStorage.getItem(STORAGE_KEY_MAIN);
 const home = localStorage.getItem(STORAGE_KEY_HOME);
 
 // console.log(main);
+
+let closeBtn;
+
 
 export default function onOpenModalFilmCard(e) {
   if (e.target.nodeName !== 'IMG') {
@@ -31,7 +35,9 @@ export default function onOpenModalFilmCard(e) {
   modal = document.querySelector('.modal');
   closeBtn = document.querySelector('.js-modal__close-btn');
 
+
   mainSpinner();
+
 
   closeBtn.addEventListener('click', onCloseModalFilmCard);
 

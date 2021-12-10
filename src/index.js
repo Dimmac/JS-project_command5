@@ -6,3 +6,4 @@ import './js/renderMovieForQuery.js';
 import { onHomeClick, onLibraryClick } from './js/header-logic';
 import './js/thems';
 import './js/toTop';
+import './js/modal-team';
