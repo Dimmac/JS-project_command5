@@ -109,29 +109,27 @@
 .annotation {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 20px;
-  text-align: center;
-  @include font($fs: 18px, $fw: 500, $lh: 24px);
-  // border: 1px solid var(--accent-color);
-  background-color: #3f374d10;
+  justify-content: space-between;
+  // padding: 20px;
+  height: 300px;
+  @include font($fs: 16px, $fw: 500, $lh: 24px);
+  // background-color: #3f374d10;
   border-radius: 5px;
 
-  height: 120px;
   @include min-width('medium') {
-    @include font($fs: 28px, $fw: 500, $lh: 36px);
+    @include font($fs: 20px, $fw: 500, $lh: 36px);
   }
 
   @include min-width('large') {
-    @include font($fs: 34px, $fw: 500, $lh: 40px);
-    height: 360px;
+    @include font($fs: 24px, $fw: 500, $lh: 40px);
+    // height: 300px;
   }
   --animate-duration: 4s;
 }
 .annotation-gif {
   display: block;
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
   margin: 0 auto;
 }
 
