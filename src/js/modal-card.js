@@ -2,7 +2,7 @@ import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/src/styles/main.scss';
 import ApiService from './api-service';
 import modalCard from '../templates/modal-card.hbs';
-import spinnerLoad from '../js/spinner'
+import spinnerLoad from '../js/spinner';
 import mainSpinner from '../js/spinner';
 
 const apiService = new ApiService();
@@ -15,8 +15,6 @@ const arrQueueFilmsIds = JSON.parse(localStorage.getItem('arrQueueFilmsIds')) ||
 let detaleMovie;
 let instance;
 let modal;
-
-
 
 let closeBtn;
 
@@ -37,7 +35,7 @@ export default function onOpenModalFilmCard(e) {
       modal = document.querySelector('.modal');
       closeBtn = document.querySelector('.js-modal__close-btn');
 
-      mainSpinner()
+      mainSpinner();
 
       closeBtn.addEventListener('click', onCloseModalFilmCard);
     } catch (error) {
@@ -69,6 +67,3 @@ function onCloseModalFilmCard(e) {
   instance.close();
   window.removeEventListener('keydown', onCloseModalFilmCard);
 }
-
-
-
