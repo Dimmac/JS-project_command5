@@ -11,8 +11,6 @@ let modal;
 let closeBtn;
 let movieId;
 
-const main = localStorage.getItem(STORAGE_KEY_MAIN);
-
 export default function onOpenModalFilmCard(e) {
   if (e.target.nodeName !== 'IMG') {
     return;
@@ -20,9 +18,9 @@ export default function onOpenModalFilmCard(e) {
 
   movieId = +e.target.parentNode.parentNode.id;
 
-  createMovieById(movieId);
+  const parsedData = createMovieById(movieId);
 
-  instance = basicLightbox.create(modalCard(detaleMovie));
+  instance = basicLightbox.create(modalCard(parsedData));
   instance.show();
 
   modal = document.querySelector('.modal');
@@ -37,9 +35,9 @@ export default function onOpenModalFilmCard(e) {
 
 function createMovieById(id) {
   try {
+    const main = localStorage.getItem(STORAGE_KEY_MAIN);
     detaleMovie = JSON.parse(main).find(arr => arr.id === id);
 
-    console.log(detaleMovie);
     return detaleMovie;
   } catch (error) {
     console.log(error);
