@@ -3,7 +3,7 @@ import 'basiclightbox/src/styles/main.scss';
 import modalCard from '../templates/modal-card.hbs';
 import spinnerLoad from '../js/spinner';
 import mainSpinner from '../js/spinner';
-import { STORAGE_KEY_HOME, STORAGE_KEY_MAIN } from './keys-local-storage';
+import { STORAGE_KEY_MAIN } from './keys-local-storage';
 
 let detaleMovie;
 let instance;
@@ -11,14 +11,7 @@ let modal;
 let closeBtn;
 let movieId;
 
-
 const main = localStorage.getItem(STORAGE_KEY_MAIN);
-const home = localStorage.getItem(STORAGE_KEY_HOME);
-
-// console.log(main);
-
-let closeBtn;
-
 
 export default function onOpenModalFilmCard(e) {
   if (e.target.nodeName !== 'IMG') {
@@ -35,9 +28,7 @@ export default function onOpenModalFilmCard(e) {
   modal = document.querySelector('.modal');
   closeBtn = document.querySelector('.js-modal__close-btn');
 
-
   mainSpinner();
-
 
   closeBtn.addEventListener('click', onCloseModalFilmCard);
 
