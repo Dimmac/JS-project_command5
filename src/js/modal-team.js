@@ -1,10 +1,7 @@
 import * as basicLightbox from 'basiclightbox';
 import { developers } from './object-developers';
 import githubUrl from '../images/github.svg';
-
 const linkEl = document.querySelector('.js-team-modal');
-const modalContainer = document.querySelector('.team-container');
-const listEl = document.querySelector('.team-list');
 linkEl.addEventListener('click', openModalTeam);
 
 const arrayDev = developers.reduce(
@@ -20,9 +17,18 @@ const arrayDev = developers.reduce(
 </li>`,
   '',
 );
-listEl.insertAdjacentHTML('afterbegin', arrayDev);
 
-const modalTeam = basicLightbox.create(modalContainer);
+const modalTeam = basicLightbox.create(`
+   <div class="team-container visually-hidden">
+  <div class="title-wrapper">
+
+    <h2 class="team-title">Засунь и тыкай</h2>
+  </div>
+  <div class="team-content">
+    <ul class="team-list">${arrayDev}</ul>
+  </div>
+</div>
+`);
 
 function openModalTeam(event) {
   event.preventDefault();
