@@ -50,7 +50,11 @@
       <tr class='modal__table-text'>
         <td class='modal__table-property'>Genre</td>
         <td class='modal__table-quantity'>
-          <span class='text'>{{#each genres}}{{this.name}}{{/each}}</span>
+          <span class='text'>{{#each genres}}{{#if @last}}
+                {{this}}
+              {{else}}
+                {{this}},
+              {{/if}}{{/each}}</span>
         </td>
       </tr>
     </table>
@@ -62,23 +66,28 @@
 
     <!-- modal buttons -->
     <div class='modal__btn-wrapper'>
-      <button class='modal__btn js-btn__watched' type='button' data-id='{{id}}' data-action="spinner">
-        <div class="loading-w">
+      <button
+        class='modal__btn js-btn__watched'
+        type='button'
+        data-id='{{id}}'
+        data-action='spinner'
+      >
+        <div class='loading-w'>
           <div></div>
           <div></div>
           <div></div>
         </div>
-        <span class="label-w">add to watched</span>
+        <span class='label-w'>add to watched</span>
       </button>
-      <button class='modal__btn js-btn__queue' type='button' data-id='{{id}}' data-action="spinner">
-        <div class="loading-q">
+      <button class='modal__btn js-btn__queue' type='button' data-id='{{id}}' data-action='spinner'>
+        <div class='loading-q'>
           <div></div>
           <div></div>
           <div></div>
         </div>
-        <span class="label-q">add to queue</span>
+        <span class='label-q'>add to queue</span>
       </button>
-    
+
     </div>
   </div>
 
