@@ -4,20 +4,24 @@
 
 .modal {
   position: absolute;
-  top: 50%;
+  overflow: auto;
+  top: 250px;
   left: 50%;
   transform: translate(-50%, -50%);
 
-  margin: auto;
-  margin-bottom: 80px;
+  // margin: auto;
+  // margin-bottom: 80px;
   width: 280px;
-  max-height: 968px;
-  border: 1px solid rgb(0, 0, 0, 0);
-  background-color: #fff;
 
+  height: fit-content;
+  border: 1px solid rgb(0, 0, 0, 0);
+  border-radius: 4px;
+  background-color: #fff;
+  padding-top: 48px;
+  padding-bottom: 40px;
   &__container-img {
     margin: auto;
-    margin-top: 48px;
+
     width: 240px;
     height: 357px;
     border-radius: 4px;
@@ -194,10 +198,14 @@
 
 @media screen and (min-width: 768px) {
   .modal {
-    margin-bottom: 80px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    // margin-bottom: 80px;
     display: flex;
-    width: 620px;
-    height: 562px;
+    width: 618px;
+
+    // height: 562px;
   }
 
   .modal__container-img {
@@ -233,7 +241,11 @@
 
 @media screen and (min-width: 1024px) {
   .modal {
-    min-width: 882px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 882px;
+    height: 568px;
   }
 
   .modal__container-img {

@@ -21,10 +21,16 @@ export default function onOpenModalFilmCard(e) {
 
   const parsedData = createMovieById(movieId);
 
-  instance = basicLightbox.create(modalCard(parsedData));
+  instance = basicLightbox.create(modalCard(parsedData), {
+    onShow: instance => {
+      document.body.classList.add('bg-scrolling-element-when-mobile-open');
+    },
+    onClose: instance => {
+      document.body.classList.remove('bg-scrolling-element-when-mobile-open');
+    },
+  });
   instance.show();
 
-  instance.show();
   const refs = {
     addToWatchedBtn: document.querySelector('.js-btn__watched'),
     addToQueueBtn: document.querySelector('.js-btn__queue'),
