@@ -1,0 +1,71 @@
+.basicLightbox {
+}
+.team-container {
+  overflow-y: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+
+  width: 280px;
+  background-color: var(--text-color-light);
+  @include min-width('medium') {
+    width: 620px;
+  }
+  @include min-width('large') {
+    width: 902px;
+  }
+}
+.team-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -20px;
+  margin-top: -20px;
+}
+
+.team-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: calc(100% / 2 - 20px);
+  margin-left: 20px;
+  margin-top: 20px;
+  @include min-width('medium') {
+    flex-basis: calc(100% / 4 - 20px);
+  }
+}
+.team-title {
+  text-align: center;
+  color: var(--accent-color);
+  margin-bottom: 12px;
+  @include font($fs: 16px, $fw: 500, $lh: 20px);
+  @include min-width('medium') {
+    @include font($fs: 20px, $fw: 500, $lh: 24px);
+  }
+  @include min-width('medium') {
+    @include font($fs: 24px, $fw: 500, $lh: 28px);
+  }
+}
+
+.team-image {
+  display: block;
+  width: 100px;
+
+  border-radius: 12px;
+  margin-bottom: 4px;
+}
+.team-name {
+  @include font($fs: 14px, $fw: 500, $lh: 16px);
+  margin-bottom: 4px;
+}
+
+.team-position {
+  @include font($fs: 12px, $fw: 400, $lh: 16px);
+  margin-bottom: 4px;
+}
+.github-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
