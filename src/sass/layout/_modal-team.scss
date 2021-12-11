@@ -1,7 +1,7 @@
 .basicLightbox {
+  overflow-y: auto;
 }
 .team-container {
-  overflow-y: auto;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -9,14 +9,30 @@
   padding: 20px;
 
   width: 280px;
+  height: 400px;
   background-color: var(--text-color-light);
   @include min-width('medium') {
     width: 620px;
+    height: 400px;
   }
   @include min-width('large') {
     width: 902px;
+    height: 420px;
   }
 }
+.team-title {
+  text-align: center;
+  color: var(--accent-color);
+  margin-bottom: 30px;
+  @include font($fs: 14px, $fw: 500, $lh: 20px);
+  @include min-width('medium') {
+    @include font($fs: 16px, $fw: 500, $lh: 18px);
+  }
+  @include min-width('medium') {
+    @include font($fs: 24px, $fw: 500, $lh: 28px);
+  }
+}
+
 .team-list {
   display: flex;
   flex-wrap: wrap;
@@ -26,46 +42,81 @@
 
 .team-item {
   display: flex;
-  flex-direction: column;
   align-items: center;
   flex-basis: calc(100% / 2 - 20px);
   margin-left: 20px;
   margin-top: 20px;
   @include min-width('medium') {
+    flex-basis: calc(100% / 3 - 20px);
+  }
+  @include min-width('large') {
     flex-basis: calc(100% / 4 - 20px);
   }
 }
-.team-title {
-  text-align: center;
-  color: var(--accent-color);
-  margin-bottom: 12px;
-  @include font($fs: 16px, $fw: 500, $lh: 20px);
-  @include min-width('medium') {
-    @include font($fs: 20px, $fw: 500, $lh: 24px);
-  }
-  @include min-width('medium') {
-    @include font($fs: 24px, $fw: 500, $lh: 28px);
-  }
+.team-image {
+  margin-right: 12px;
 }
 
 .team-image {
   display: block;
-  width: 100px;
+  width: 40px;
 
   border-radius: 12px;
-  margin-bottom: 4px;
+
+  transition: all 400ms var(--cubic);
+  @include min-width('medium') {
+    width: 60px;
+  }
+  @include min-width('large') {
+    width: 100px;
+  }
+}
+
+.team-image:hover {
+  transform: scale(1.1);
+}
+.team-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .team-name {
-  @include font($fs: 14px, $fw: 500, $lh: 16px);
+  @include font($fs: 10px, $fw: 500, $lh: 12px);
   margin-bottom: 4px;
+
+  @include min-width('medium') {
+    @include font($fs: 12px, $fw: 500, $lh: 14px);
+  }
+  @include min-width('medium') {
+    @include font($fs: 14px, $fw: 500, $lh: 16px);
+  }
 }
 
 .team-position {
-  @include font($fs: 12px, $fw: 400, $lh: 16px);
+  @include font($fs: 8px, $fw: 400, $lh: 9px);
   margin-bottom: 4px;
+  @include min-width('medium') {
+    @include font($fs: 10px, $fw: 400, $lh: 11px);
+  }
+  @include min-width('large') {
+    @include font($fs: 12px, $fw: 400, $lh: 14px);
+  }
 }
 .github-icon {
   display: block;
   width: 24px;
   height: 24px;
+  transition: all 400ms var(--cubic);
+}
+
+.github-icon:hover {
+  fill: var(--color-dark-theme);
+  background-color: var(--accent-color);
+  border-radius: 50%;
+}
+.bg-scrolling-element-when-mobile-open {
+  touch-action: none;
+  -webkit-overflow-scrolling: none;
+  overflow: hidden;
+  overscroll-behavior: none;
 }

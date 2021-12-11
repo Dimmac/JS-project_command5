@@ -9,19 +9,20 @@ const arrayDev = developers.reduce(
   (acc, { name, image, position, github }) =>
     acc +
     `<li class="team-item">
-    <img src="${image}" alt="${name}" class="team-image">
-   
+    <div class="team-img-wrapper"><img src="${image}" alt="${name}" class="team-image"></div>
+   <div class="team-info-wrapper">
     <p class="team-name">${name}</p>
     <p class="team-position">${position}</p>
     <a href="${github}" target="_blank" class="team-git"><svg class="github-icon" width="24" height="24">
       <use href="${sprite}#icon-github"></use>
     </svg></a>
-   
+   </div>
 </li>`,
   '',
 );
 
-const modalTeam = basicLightbox.create(`
+const modalTeam = basicLightbox.create(
+  `
    <div class="team-container">
   <div class="title-wrapper">
 
@@ -31,11 +32,18 @@ const modalTeam = basicLightbox.create(`
     <ul class="team-list">${arrayDev}</ul>
   </div>
 </div>
-`);
+`,
+  {
+    onClose: modalTeam => {
+      document.body.classList.remove('bg-scrolling-element-when-mobile-open');
+    },
+  },
+);
 
 function openModalTeam(event) {
   event.preventDefault();
   modalTeam.show();
+  document.body.classList.add('bg-scrolling-element-when-mobile-open');
 }
 
 window.addEventListener('keydown', closeModalTeam);

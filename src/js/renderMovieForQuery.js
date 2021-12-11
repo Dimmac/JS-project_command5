@@ -16,7 +16,6 @@ function renderGalleryMovieForQuery(e) {
   e.preventDefault();
 
   searchQueryApiService.query = e.currentTarget.elements.searchQuery.value.trim();
-  console.log(searchQueryApiService.query);
   searchQueryApiService
     .fetchMovieForQuery(searchQueryApiService.query)
     .then(({ results, total_results: totalResults }) => {
