@@ -28,7 +28,6 @@ export const initPagination = ({ page, itemsPerPage, totalItems }) => {
 
     if (ApiService.searchType === 'popular') {
       try {
-        console.log(newApiService.pageNum);
         const response = await newApiService.fetchTrendingMovies();
         const formattedData = formatData(response.results);
 
