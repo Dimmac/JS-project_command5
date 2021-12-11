@@ -6,7 +6,7 @@ import Notiflix from 'notiflix';
 import 'notiflix/dist/notiflix-3.2.2.min.css';
 import { saveDataToLocalStorage } from './saveTrendingTolocalStorage';
 import { STORAGE_KEY_HOME } from './keys-local-storage';
-import { STORAGE_KEY_MAIN } from './keys-local-storage';
+import { STORAGE_KEY_MAIN, STORAGE_KEY_QUEUE } from './keys-local-storage';
 import { searchQueryApiService } from './renderMovieForQuery';
 import ApiService from './api-service.js';
 import { pagination } from './renderTrendingMovies';
@@ -30,6 +30,7 @@ const refs = {
 refs.homeEl.addEventListener('click', onHomeClick);
 refs.logoHomeEl.addEventListener('click', onHomeClick);
 refs.myLibraryEl.addEventListener('click', onLibraryClick);
+refs.queueBtn.addEventListener('click', onQueueClick);
 
 const newApiService = new ApiService();
 
@@ -47,6 +48,8 @@ function onLibraryClick(e) {
   refs.paginationDiv.classList.add('visually-hidden');
   refs.annotation.classList.remove('visually-hidden');
   refs.annotation.classList.add('animate__zoomIn');
+  refs.watchedBtn.classList.add('button-active');
+  refs.queueBtn.classList.remove('button-active');
   // swal('Attention', 'Sorry, you have not added anything yet', 'info');
   // Notiflix.Notify.info('Sorry, sorry you have not added anything yet');
   // refs.headerEl.classList.add('.header-container-library');
@@ -75,18 +78,35 @@ function onHomeStateHeader() {
   refs.paginationDiv.classList.remove('visually-hidden');
 }
 
-export async function parseTrendingForLocalStorage() {
-  try {
-    const saveData = localStorage.getItem(STORAGE_KEY_HOME);
-    const parseData = JSON.parse(saveData);
-    const formattedData = formatData(parseData);
+export function parseTrendingForLocalStorage() {
+  const saveData = localStorage.getItem(STORAGE_KEY_HOME);
+  const parseData = JSON.parse(saveData);
+  const formattedData = formatData(parseData);
+  const markup = filmGallery(parseData);
+  refs.galleryEl.innerHTML = '';
+  refs.galleryEl.insertAdjacentHTML('afterbegin', markup);
+  pagination.reset();
+  newApiService.pageNum = 1;
+  saveDataToLocalStorage(STORAGE_KEY_MAIN, formattedData);
+}
+
+export function onQueueClick() {
+  refs.watchedBtn.classList.remove('button-active');
+  refs.queueBtn.classList.add('button-active');
+
+  console.log('on queue click');
+
+  const saveData = localStorage.getItem(STORAGE_KEY_QUEUE);
+  const parseData = JSON.parse(saveData);
+  if (parseData !== null) {
     const markup = filmGallery(parseData);
     refs.galleryEl.innerHTML = '';
     refs.galleryEl.insertAdjacentHTML('afterbegin', markup);
-    pagination.reset();
-    newApiService.pageNum = 1;
-    saveDataToLocalStorage(STORAGE_KEY_MAIN, formattedData);
-  } catch (error) {
-    console.log(error);
+
+    refs.annotation.classList.add('visually-hidden');
+  } else {
+    refs.annotation.classList.remove('visually-hidden');
   }
+
+  // const formattedData = formatData(parseData);
 }
