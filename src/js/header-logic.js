@@ -6,7 +6,7 @@ import Notiflix from 'notiflix';
 import 'notiflix/dist/notiflix-3.2.2.min.css';
 import { saveDataToLocalStorage } from './saveTrendingTolocalStorage';
 import { STORAGE_KEY_HOME } from './keys-local-storage';
-import { STORAGE_KEY_MAIN, STORAGE_KEY_QUEUE } from './keys-local-storage';
+import { STORAGE_KEY_MAIN, STORAGE_KEY_QUEUE, STORAGE_KEY_WATCHED } from './keys-local-storage';
 import { searchQueryApiService } from './renderMovieForQuery';
 import ApiService from './api-service.js';
 import { pagination } from './renderTrendingMovies';
@@ -31,6 +31,7 @@ refs.homeEl.addEventListener('click', onHomeClick);
 refs.logoHomeEl.addEventListener('click', onHomeClick);
 refs.myLibraryEl.addEventListener('click', onLibraryClick);
 refs.queueBtn.addEventListener('click', onQueueClick);
+refs.watchedBtn.addEventListener('click', onWatchedClick);
 
 const newApiService = new ApiService();
 
@@ -50,6 +51,7 @@ function onLibraryClick(e) {
   refs.annotation.classList.add('animate__zoomIn');
   refs.watchedBtn.classList.add('button-active');
   refs.queueBtn.classList.remove('button-active');
+  onWatchedClick();
   // swal('Attention', 'Sorry, you have not added anything yet', 'info');
   // Notiflix.Notify.info('Sorry, sorry you have not added anything yet');
   // refs.headerEl.classList.add('.header-container-library');
@@ -107,6 +109,21 @@ export function onQueueClick() {
   } else {
     refs.annotation.classList.remove('visually-hidden');
   }
+}
 
-  // const formattedData = formatData(parseData);
+export function onWatchedClick() {
+  refs.queueBtn.classList.remove('button-active');
+  refs.watchedBtn.classList.add('button-active');
+
+  const saveData = localStorage.getItem(STORAGE_KEY_WATCHED);
+  const parseData = JSON.parse(saveData);
+  if (parseData !== null) {
+    const markup = filmGallery(parseData);
+    refs.galleryEl.innerHTML = '';
+    refs.galleryEl.insertAdjacentHTML('afterbegin', markup);
+
+    refs.annotation.classList.add('visually-hidden');
+  } else {
+    refs.annotation.classList.remove('visually-hidden');
+  }
 }

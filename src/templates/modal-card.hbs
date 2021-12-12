@@ -70,22 +70,16 @@
         class='modal__btn js-btn__watched'
         type='button'
         data-id='{{id}}'
-        data-action='spinner'
+        data-action='add-to-watched'
       >
-        <div class='loading-w'>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-        <span class='label-w'>add to watched</span>
-      </button>
-      <button class='modal__btn js-btn__queue' type='button' data-id='{{id}}' data-action='spinner'>
-        <div class='loading-q'>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-        <span class='label-q'>add to queue</span>
+        add to watched</button>
+      <button
+        class='modal__btn js-btn__queue'
+        type='button'
+        data-id='{{id}}'
+        data-action='add-to-queue'
+      >
+        add to queue
       </button>
 
     </div>
