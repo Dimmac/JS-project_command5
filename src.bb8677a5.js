@@ -109,7 +109,7 @@ var t;!function(e,n){"object"==typeof exports&&"object"==typeof module?module.ex
 },{"./renderTrendingMovies":"hOC4","../templates/film-card.hbs":"fFoL","./renderMovieForQuery":"cQZk","./formatted-data":"VDXL","notiflix":"hWOm","notiflix/dist/notiflix-3.2.2.min.css":"yBio","./saveTrendingTolocalStorage":"bh8W","./keys-local-storage":"QVCi","./api-service.js":"hC31","sweetalert":"ZQjc","animate.css":"yBio"}],"JyJ9":[function(require,module,exports) {
 "use strict";var e=require("./keys-local-storage");const t=document.querySelector("#theme-switch-toggle"),s=document.querySelector(".footer");function c(){"dark-theme"===localStorage.theme?(document.body.classList.add(e.Theme.DARK),s.classList.add(e.Theme.DARK),t.checked=!0):(document.body.classList.add(e.Theme.LIGHT),s.classList.add(e.Theme.LIGHT))}function o(t){document.body.classList.toggle(e.Theme.LIGHT),document.body.classList.toggle(e.Theme.DARK),s.classList.toggle(e.Theme.LIGHT),s.classList.toggle(e.Theme.DARK),t.target.checked?localStorage.setItem("theme",e.Theme.DARK):localStorage.setItem("theme",e.Theme.LIGHT)}t.addEventListener("change",o),c();
 },{"./keys-local-storage":"QVCi"}],"z1HG":[function(require,module,exports) {
-const e=document.querySelector(".to-top");window.addEventListener("scroll",()=>{window.pageYOffset>1e3?e.classList.add("active"):e.classList.remove("active")});
+const e=document.querySelector(".to-top");window.addEventListener("scroll",()=>{window.pageYOffset>600?e.classList.add("active"):e.classList.remove("active")});
 },{}],"cPrW":[function(require,module,exports) {
 module.exports="/JS-project_command5/Dmytro-dev.7c6f085e.jpg";
 },{}],"cOi6":[function(require,module,exports) {
@@ -131,4 +131,4 @@ module.exports="/JS-project_command5/sprite.ae706612.svg";
 },{"basiclightbox":"BNjD","./object-developers":"EU5X","../images/sprite.svg":"QAGW"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/get-genres"),require("./js/renderTrendingMovies.js"),require("./js/renderMovieForQuery.js"),require("./js/pagination");var e=require("./js/header-logic");require("./js/modal-card"),require("./js/thems"),require("./js/toTop"),require("./js/modal-team");
 },{"./sass/main.scss":"clu1","./js/get-genres":"RCw5","./js/renderTrendingMovies.js":"hOC4","./js/renderMovieForQuery.js":"cQZk","./js/pagination":"o8lo","./js/header-logic":"h3xw","./js/modal-card":"DnHo","./js/thems":"JyJ9","./js/toTop":"z1HG","./js/modal-team":"O9Th"}]},{},["Focm"], null)
-//# sourceMappingURL=/JS-project_command5/src.69bb4482.js.map
+//# sourceMappingURL=/JS-project_command5/src.bb8677a5.js.map
