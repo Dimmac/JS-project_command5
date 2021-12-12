@@ -2,7 +2,7 @@ import imgDmitro from '../images/team-photo/Dmytro-dev.jpg';
 import imgEvgenia from '../images/team-photo/Evgenia-dev.jpg';
 import imgVitaly from '../images/team-photo/anonimus-dev1.jpg';
 import imgJulia from '../images/team-photo/Julia-dev.jpg';
-import imgVadim from '../images/team-photo/anonimus-dev1.jpg';
+import imgVadim from '../images/team-photo/Vadim-dev.jpg';
 import imgNatalia from '../images/team-photo/Natasha-dev.jpg';
 import imgMaxim from '../images/team-photo/anonimus-dev1.jpg';
 import imgMaria from '../images/team-photo/Maria-dev.jpg';
@@ -15,18 +15,24 @@ export const developers = [
     github: 'https://github.com/Dimmac',
   },
   {
-    name: 'Женя',
-    position: 'Developer',
-    image: `${imgEvgenia}`,
-    github: 'https://github.com/EugeniaV5',
+    name: 'Маша',
+    position: 'Scrum master',
+    image: `${imgMaria}`,
+    github: 'https://github.com/MaryaSamsonenko',
   },
-
   {
     name: 'Виталик',
     position: 'Developer',
     image: `${imgVitaly}`,
     github: 'https://github.com/VitaliiKovalenko88',
   },
+  {
+    name: 'Женя',
+    position: 'Developer',
+    image: `${imgEvgenia}`,
+    github: 'https://github.com/EugeniaV5',
+  },
+
   {
     name: 'Юля',
     position: 'Developer',
@@ -50,12 +56,5 @@ export const developers = [
     position: 'Developer',
     image: `${imgMaxim}`,
     github: 'https://github.com/MaxusGuitar',
-  },
-
-  {
-    name: 'Маша',
-    position: 'Scrum master',
-    image: `${imgMaria}`,
-    github: 'https://github.com/MaryaSamsonenko',
   },
 ];
