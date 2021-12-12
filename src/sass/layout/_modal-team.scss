@@ -28,7 +28,7 @@
   @include min-width('medium') {
     @include font($fs: 16px, $fw: 500, $lh: 18px);
   }
-  @include min-width('medium') {
+  @include min-width('large') {
     @include font($fs: 24px, $fw: 500, $lh: 28px);
   }
 }
