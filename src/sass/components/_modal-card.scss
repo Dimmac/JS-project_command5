@@ -20,7 +20,8 @@
   padding-top: 48px;
   padding-bottom: 40px;
   &__container-img {
-    margin: auto;
+    margin: 0 auto;
+    margin-bottom: 30px;
 
     width: 240px;
     height: 357px;
@@ -30,15 +31,15 @@
   &__img {
     display: block;
     height: 357px;
-    margin: auto;
+    // margin: auto;
     object-fit: contain;
   }
 
   &__text-container {
-    margin-top: 40px;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 40px;
+    // padding-top: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    // padding-bottom: 40px;
   }
 
   &__text-title {
@@ -198,21 +199,26 @@
 
 @media screen and (min-width: 768px) {
   .modal {
-    top: 50%;
+    top: 50px;
     left: 50%;
     transform: translate(-50%, -50%);
     // margin-bottom: 80px;
     display: flex;
     width: 618px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 28px;
+    padding-left: 30px;
 
     // height: 562px;
   }
 
   .modal__container-img {
-    margin-right: 30px;
-    margin-left: 30px;
+    // margin-right: 30px;
+    // margin-left: 30px;
     width: 264px;
     height: 372px;
+    margin-bottom: 0px;
   }
 
   .modal__img {
@@ -222,6 +228,10 @@
 
   .modal__text-container {
     width: 295px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
   }
 
   .modal__text-title {
@@ -246,6 +256,8 @@
     transform: translate(-50%, -50%);
     width: 882px;
     height: 568px;
+    padding-top: 50px;
+    padding-bottom: 40px;
   }
 
   .modal__container-img {
@@ -260,7 +272,9 @@
 
   .modal__text-container {
     width: 423px;
-    margin-left: 0px;
-    margin-right: 40px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 40px;
   }
 }
