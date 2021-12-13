@@ -129,12 +129,16 @@
   caret-color: var(--text-color-light);
   color: var(--text-color-light);
   outline: none;
+  transition: border-color 500ms linear;
   @media screen and (max-width: 767px) {
     max-width: 100%;
   }
 
   @media screen and (min-width: 768px) {
     width: 336px;
+  }
+  &:focus {
+    border-color: var(--accent-color);
   }
 }
 
