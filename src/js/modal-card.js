@@ -8,6 +8,8 @@ import {
   STORAGE_KEY_MAIN,
 } from './keys-local-storage';
 import { saveDataToLocalStorage } from './saveTrendingTolocalStorage';
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
 
 let detaleMovie;
 let instance;
@@ -16,6 +18,7 @@ let closeBtn;
 let movieId;
 
 export default function onOpenModalFilmCard(e) {
+  NProgress.start();
   if (e.target.nodeName !== 'IMG') {
     return;
   }
@@ -103,6 +106,7 @@ export default function onOpenModalFilmCard(e) {
     const newParsedArray = parsedArray.filter(film => film.id !== id);
     saveDataToLocalStorage(key, newParsedArray);
   }
+  NProgress.done();
   // ==========================================================================
 }
 
