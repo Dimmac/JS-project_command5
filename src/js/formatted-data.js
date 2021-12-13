@@ -13,7 +13,9 @@ export function formatData(data) {
 
       return acc;
     }, []);
-    if (arrayGenres.length >= 3) {
+    if (arrayGenres.length === 0) {
+      arrayGenres[0] = 'Unknown';
+    } else if (arrayGenres.length >= 3) {
       arrayGenres.splice(3);
       arrayGenres[2] = 'Other';
     }
