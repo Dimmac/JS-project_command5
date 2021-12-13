@@ -7,3 +7,9 @@ window.addEventListener('scroll', () => {
     toTop.classList.remove('active');
   }
 });
+
+toTop.addEventListener('click', onToTopClick);
+
+function onToTopClick() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
