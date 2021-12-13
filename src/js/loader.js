@@ -1,5 +1,4 @@
 const mask = document.querySelector('.mask');
-const link = document.querySelectorAll('a');
 
 window.addEventListener('load', onLoad);
 
