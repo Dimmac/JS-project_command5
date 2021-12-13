@@ -50,17 +50,11 @@ function onLibraryClick(e) {
   e.preventDefault();
   NProgress.start();
   onLibraryStateHeader();
-  galleryEl.innerHTML = '';
   refs.paginationDiv.classList.add('visually-hidden');
-  refs.annotation.classList.remove('visually-hidden');
-  refs.annotation.classList.add('animate__zoomIn');
   refs.watchedBtn.classList.add('button-active');
   refs.queueBtn.classList.remove('button-active');
   onWatchedClick();
   NProgress.done();
-  // swal('Attention', 'Sorry, you have not added anything yet', 'info');
-  // Notiflix.Notify.info('Sorry, sorry you have not added anything yet');
-  // refs.headerEl.classList.add('.header-container-library');
 }
 
 export default { onHomeClick, onLibraryClick };
@@ -109,19 +103,22 @@ export function onQueueClick() {
   refs.watchedBtn.classList.remove('button-active');
   refs.queueBtn.classList.add('button-active');
 
-  console.log('on queue click');
-
   const saveData = localStorage.getItem(STORAGE_KEY_QUEUE);
-  const parseData = JSON.parse(saveData);
-  if (parseData !== null) {
+  const parseData = JSON.parse(saveData) || [];
+  saveDataToLocalStorage(STORAGE_KEY_MAIN, parseData);
+
+  if (parseData.length !== 0) {
     const markup = filmGallery(parseData);
     refs.galleryEl.innerHTML = '';
     refs.galleryEl.insertAdjacentHTML('afterbegin', markup);
 
     refs.annotation.classList.add('visually-hidden');
   } else {
+    refs.galleryEl.innerHTML = '';
     refs.annotation.classList.remove('visually-hidden');
+    refs.annotation.classList.add('animate__zoomIn');
   }
+
   NProgress.done();
 }
 
@@ -131,15 +128,19 @@ export function onWatchedClick() {
   refs.watchedBtn.classList.add('button-active');
 
   const saveData = localStorage.getItem(STORAGE_KEY_WATCHED);
-  const parseData = JSON.parse(saveData);
-  if (parseData !== null) {
+  const parseData = JSON.parse(saveData) || [];
+  saveDataToLocalStorage(STORAGE_KEY_MAIN, parseData);
+
+  if (parseData.length !== 0) {
     const markup = filmGallery(parseData);
     refs.galleryEl.innerHTML = '';
     refs.galleryEl.insertAdjacentHTML('afterbegin', markup);
 
     refs.annotation.classList.add('visually-hidden');
   } else {
+    refs.galleryEl.innerHTML = '';
     refs.annotation.classList.remove('visually-hidden');
+    refs.annotation.classList.add('animate__zoomIn');
   }
   NProgress.done();
 }
