@@ -16,16 +16,21 @@ formEL.addEventListener('submit', renderGalleryMovieForQuery);
 
 function renderGalleryMovieForQuery(e) {
   e.preventDefault();
-
+  searchQueryApiService.pageNum = 1;
   NProgress.start();
   searchQueryApiService.query = e.currentTarget.elements.searchQuery.value.trim();
   searchQueryApiService
     .fetchMovieForQuery(searchQueryApiService.query)
     .then(({ results, total_results: totalResults }) => {
+      if (totalResults < 1) {
+        Notiflix.Notify.failure('Sorry, there are movie not finding. Please try again.');
+        formEL.reset();
+        return;
+      }
+      showMovie(results);
       pagination.reset(totalResults);
       ApiService.searchType = 'search';
       searchQueryApiService.pageNum = 1;
-      showMovie(results);
     })
     .catch(console.log);
 
@@ -39,11 +44,6 @@ function renderGalleryMovieForQuery(e) {
 }
 
 function showMovie(data) {
-  if (data.length < 1) {
-    Notiflix.Notify.failure('Sorry, there are movie not finding. Please try again.');
-    formEL.reset();
-    return;
-  }
   const formattedData = formatData(data);
   const markup = filmGallery(formattedData);
   galleryEl.innerHTML = markup;
