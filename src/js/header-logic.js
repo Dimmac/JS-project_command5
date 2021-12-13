@@ -12,6 +12,8 @@ import ApiService from './api-service.js';
 import { pagination } from './renderTrendingMovies';
 import swal from 'sweetalert';
 import 'animate.css';
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
 
 const refs = {
   homeEl: document.querySelector('.logo-home-js'),
@@ -37,13 +39,16 @@ const newApiService = new ApiService();
 
 function onHomeClick(e) {
   e.preventDefault();
+  NProgress.start();
   onHomeStateHeader();
   parseTrendingForLocalStorage();
   refs.annotation.classList.add('visually-hidden');
+  NProgress.done();
 }
 
 function onLibraryClick(e) {
   e.preventDefault();
+  NProgress.start();
   onLibraryStateHeader();
   galleryEl.innerHTML = '';
   refs.paginationDiv.classList.add('visually-hidden');
@@ -52,6 +57,7 @@ function onLibraryClick(e) {
   refs.watchedBtn.classList.add('button-active');
   refs.queueBtn.classList.remove('button-active');
   onWatchedClick();
+  NProgress.done();
   // swal('Attention', 'Sorry, you have not added anything yet', 'info');
   // Notiflix.Notify.info('Sorry, sorry you have not added anything yet');
   // refs.headerEl.classList.add('.header-container-library');
@@ -60,6 +66,7 @@ function onLibraryClick(e) {
 export default { onHomeClick, onLibraryClick };
 
 function onLibraryStateHeader() {
+  NProgress.start();
   refs.headerEl.classList.remove('header-home');
   refs.headerEl.classList.add('header-library');
   refs.formEl.style.display = 'none';
@@ -67,9 +74,11 @@ function onLibraryStateHeader() {
   refs.btns.classList.remove('btn-list__header');
   refs.homeEl.classList.remove('current');
   refs.myLibraryEl.classList.add('current');
+  NProgress.done();
 }
 
 function onHomeStateHeader() {
+  NProgress.start();
   refs.headerEl.classList.remove('header-library');
   refs.headerEl.classList.add('header');
   refs.formEl.style.display = 'block';
@@ -78,9 +87,11 @@ function onHomeStateHeader() {
   refs.homeEl.classList.add('current');
   refs.myLibraryEl.classList.remove('current');
   refs.paginationDiv.classList.remove('visually-hidden');
+  NProgress.done();
 }
 
 export function parseTrendingForLocalStorage() {
+  NProgress.start();
   const saveData = localStorage.getItem(STORAGE_KEY_HOME);
   const parseData = JSON.parse(saveData);
   const formattedData = formatData(parseData);
@@ -90,9 +101,11 @@ export function parseTrendingForLocalStorage() {
   pagination.reset();
   newApiService.pageNum = 1;
   saveDataToLocalStorage(STORAGE_KEY_MAIN, formattedData);
+  NProgress.done();
 }
 
 export function onQueueClick() {
+  NProgress.start();
   refs.watchedBtn.classList.remove('button-active');
   refs.queueBtn.classList.add('button-active');
 
@@ -109,9 +122,11 @@ export function onQueueClick() {
   } else {
     refs.annotation.classList.remove('visually-hidden');
   }
+  NProgress.done();
 }
 
 export function onWatchedClick() {
+  NProgress.start();
   refs.queueBtn.classList.remove('button-active');
   refs.watchedBtn.classList.add('button-active');
 
@@ -126,4 +141,5 @@ export function onWatchedClick() {
   } else {
     refs.annotation.classList.remove('visually-hidden');
   }
+  NProgress.done();
 }

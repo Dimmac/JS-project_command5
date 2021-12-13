@@ -6,6 +6,8 @@ import { formatData } from './formatted-data';
 import { pagination } from './renderTrendingMovies';
 import { saveDataToLocalStorage } from './saveTrendingTolocalStorage';
 import { STORAGE_KEY_MAIN } from './keys-local-storage';
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
 export const searchQueryApiService = new ApiService();
 export const galleryEl = document.querySelector('.film__list');
 export const formEL = document.querySelector('.search-form');
@@ -15,6 +17,7 @@ formEL.addEventListener('submit', renderGalleryMovieForQuery);
 function renderGalleryMovieForQuery(e) {
   e.preventDefault();
 
+  NProgress.start();
   searchQueryApiService.query = e.currentTarget.elements.searchQuery.value.trim();
   searchQueryApiService
     .fetchMovieForQuery(searchQueryApiService.query)
@@ -28,9 +31,11 @@ function renderGalleryMovieForQuery(e) {
 
   if (searchQueryApiService.query === '') {
     Notiflix.Notify.failure('Please enter a movie name.');
+    NProgress.done();
     return;
   }
   formEL.reset();
+  NProgress.done();
 }
 
 function showMovie(data) {

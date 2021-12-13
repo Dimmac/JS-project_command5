@@ -1,6 +1,8 @@
 import * as basicLightbox from 'basiclightbox';
 import { developers } from './object-developers';
 import sprite from '../images/sprite.svg';
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
 
 const linkEl = document.querySelector('.js-team-modal');
 linkEl.addEventListener('click', openModalTeam);
@@ -42,8 +44,10 @@ const modalTeam = basicLightbox.create(
 
 function openModalTeam(event) {
   event.preventDefault();
+  NProgress.start();
   modalTeam.show();
   document.body.classList.add('bg-scrolling-element-when-mobile-open');
+  NProgress.done();
 }
 
 window.addEventListener('keydown', closeModalTeam);

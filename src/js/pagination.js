@@ -10,7 +10,10 @@ import { galleryEl } from './renderMovieForQuery';
 import { STORAGE_KEY_MAIN } from './keys-local-storage';
 import { saveDataToLocalStorage } from './saveTrendingTolocalStorage';
 import { searchQueryApiService } from './renderMovieForQuery';
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
 export const initPagination = ({ page, itemsPerPage, totalItems }) => {
+  // NProgress.start();
   const options = {
     page,
     itemsPerPage,
@@ -28,6 +31,7 @@ export const initPagination = ({ page, itemsPerPage, totalItems }) => {
 
     if (ApiService.searchType === 'popular') {
       try {
+        NProgress.start();
         const response = await newApiService.fetchTrendingMovies();
         const formattedData = formatData(response.results);
 
@@ -35,22 +39,26 @@ export const initPagination = ({ page, itemsPerPage, totalItems }) => {
         galleryEl.innerHTML = '';
         galleryEl.insertAdjacentHTML('afterbegin', markup);
         saveDataToLocalStorage(STORAGE_KEY_MAIN, formattedData);
+        NProgress.done();
       } catch (error) {
         console.log(error);
       }
     } else if (ApiService.searchType === 'search') {
       searchQueryApiService.pageNum = page;
       try {
+        NProgress.start();
         const response = await searchQueryApiService.fetchMovieForQuery();
         const formattedData = formatData(response.results);
         const markup = filmGallery(formattedData);
         galleryEl.innerHTML = '';
         galleryEl.insertAdjacentHTML('afterbegin', markup);
         saveDataToLocalStorage(STORAGE_KEY_MAIN, formattedData);
+        NProgress.done();
       } catch (error) {
         console.log(error);
       }
     }
   });
+  // NProgress.done();
   return pagination;
 };

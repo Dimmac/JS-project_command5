@@ -8,3 +8,4 @@ import './js/modal-card';
 import './js/thems';
 import './js/toTop';
 import './js/modal-team';
+import './js/loader';
