@@ -3,7 +3,7 @@ import './js/get-genres';
 import './js/renderTrendingMovies.js';
 import './js/renderMovieForQuery.js';
 import './js/pagination';
-import { onHomeClick, onLibraryClick } from './js/header-logic';
+import './js/header-logic';
 import './js/modal-card';
 import './js/thems';
 import './js/toTop';

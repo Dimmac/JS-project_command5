@@ -34,6 +34,7 @@
 
 .film__item {
   width: 100%;
+  border-radius: 5px;
   transition: 500ms linear;
   transition-property: transform, box-shadow;
   &:focus,
@@ -42,6 +43,9 @@
     box-shadow: 0px 5px 10px 8px rgba(34, 60, 80, 0.2);
     cursor: pointer;
   }
+}
+.dark-theme .film__item {
+  background-color: #f7f7f7;
 }
 
 .film__box {
@@ -80,7 +84,7 @@
   height: 100%;
 }
 .film__box-info {
-  padding: 10px 0px;
+  padding: 10px 0px 10px 4px;
   @include min-width('medium') {
     display: flex;
     height: 68px;
@@ -143,6 +147,6 @@
   margin: 0 auto;
 }
 
-.dark-theme .box-info__title {
-  color: white;
-}
+// .dark-theme .box-info__title {
+//   color: white;
+// }

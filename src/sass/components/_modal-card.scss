@@ -137,8 +137,7 @@
 
 // ---------------------ABOUT---------------------------
 .description {
-  padding-bottom: 21px;
-  height: 186px;
+  max-height: 176px;
   overflow: auto;
 }
 
@@ -160,7 +159,7 @@
 
 // -----------------BUTTONS-------------------
 .modal__btn-wrapper {
-  margin: 10px;
+  margin-top: 10px;
   display: flex;
   align-items: center;
 }
