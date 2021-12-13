@@ -140,4 +140,4 @@ module.exports="/JS-project_command5/sprite.ae706612.svg";
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/get-genres"),require("./js/renderTrendingMovies.js"),require("./js/renderMovieForQuery.js"),require("./js/pagination"),require("./js/header-logic"),require("./js/modal-card"),require("./js/thems"),require("./js/toTop"),require("./js/modal-team"),require("./js/loader");
 },{"./sass/main.scss":"clu1","./js/get-genres":"RCw5","./js/renderTrendingMovies.js":"hOC4","./js/renderMovieForQuery.js":"cQZk","./js/pagination":"o8lo","./js/header-logic":"h3xw","./js/modal-card":"DnHo","./js/thems":"JyJ9","./js/toTop":"z1HG","./js/modal-team":"O9Th","./js/loader":"vQE2"}]},{},["Focm"], null)
-//# sourceMappingURL=/JS-project_command5/src.381b592d.js.map
+//# sourceMappingURL=/JS-project_command5/src.00d80615.js.map
