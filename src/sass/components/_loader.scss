@@ -32,3 +32,21 @@
 .hide {
   opacity: 0;
 }
+
+.spinner {
+  top: 30%;
+  right: 50%;
+}
+
+.spinner-icon {
+  width: 30px;
+  height: 30px;
+  border-top-color: var(--accent-color);
+  border-left-color: var(--accent-color);
+}
+.peg {
+  box-shadow: 0 0 10px var(--accent-color), 0 0 5px var(--accent-color);
+}
+.bar {
+  background: var(--accent-color);
+}
