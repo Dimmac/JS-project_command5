@@ -10,6 +10,8 @@ import {
 import { saveDataToLocalStorage } from './saveTrendingTolocalStorage';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
+import ApiService from './api-service';
+import { onQueueClick, onWatchedClick } from './header-logic';
 
 let detaleMovie;
 let instance;
@@ -116,8 +118,12 @@ export default function onOpenModalFilmCard(e) {
   function removeCard(id, key) {
     const parsedArray = JSON.parse(localStorage.getItem(key));
     const newParsedArray = parsedArray.filter(film => film.id !== id);
-
     saveDataToLocalStorage(key, newParsedArray);
+    if (ApiService.searchType === 'watched') {
+      onWatchedClick();
+    } else if (ApiService.searchType === 'queue') {
+      onQueueClick();
+    }
   }
   NProgress.done();
 

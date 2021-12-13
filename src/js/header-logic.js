@@ -53,6 +53,7 @@ function onLibraryClick(e) {
   refs.paginationDiv.classList.add('visually-hidden');
   refs.watchedBtn.classList.add('button-active');
   refs.queueBtn.classList.remove('button-active');
+  ApiService.searchType = 'watched';
   onWatchedClick();
   NProgress.done();
 }
@@ -102,7 +103,7 @@ export function onQueueClick() {
   NProgress.start();
   refs.watchedBtn.classList.remove('button-active');
   refs.queueBtn.classList.add('button-active');
-
+  ApiService.searchType = 'queue';
   const saveData = localStorage.getItem(STORAGE_KEY_QUEUE);
   const parseData = JSON.parse(saveData) || [];
   saveDataToLocalStorage(STORAGE_KEY_MAIN, parseData);

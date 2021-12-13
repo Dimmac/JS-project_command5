@@ -28,7 +28,7 @@ const modalTeam = basicLightbox.create(
    <div class="team-container">
   <div class="title-wrapper">
 
-    <h2 class="team-title">Team "Honeymoon"</h2>
+    <h2 class="team-title">Team "Input and click"</h2>
   </div>
   <div class="team-content">
     <ul class="team-list">${arrayDev}</ul>

@@ -1,6 +1,6 @@
 import imgDmitro from '../images/team-photo/Dmytro-dev.jpg';
 import imgEvgenia from '../images/team-photo/Evgenia-dev.jpg';
-import imgVitaly from '../images/team-photo/anonimus-dev1.jpg';
+import imgVitaly from '../images/team-photo/Vitalik-dev.jpg';
 import imgJulia from '../images/team-photo/Julia-dev.jpg';
 import imgVadim from '../images/team-photo/Vadim-dev.jpg';
 import imgNatalia from '../images/team-photo/Natasha-dev.jpg';
