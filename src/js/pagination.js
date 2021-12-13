@@ -39,6 +39,7 @@ export const initPagination = ({ page, itemsPerPage, totalItems }) => {
         galleryEl.innerHTML = '';
         galleryEl.insertAdjacentHTML('afterbegin', markup);
         saveDataToLocalStorage(STORAGE_KEY_MAIN, formattedData);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         NProgress.done();
       } catch (error) {
         console.log(error);
@@ -53,6 +54,7 @@ export const initPagination = ({ page, itemsPerPage, totalItems }) => {
         galleryEl.innerHTML = '';
         galleryEl.insertAdjacentHTML('afterbegin', markup);
         saveDataToLocalStorage(STORAGE_KEY_MAIN, formattedData);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         NProgress.done();
       } catch (error) {
         console.log(error);
