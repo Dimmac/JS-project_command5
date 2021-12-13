@@ -52,10 +52,16 @@ export default function onOpenModalFilmCard(e) {
     if (queueFilm && watchedFilm) {
       refs.addToQueueBtn.textContent = 'Remove from queue';
       refs.addToWatchedBtn.textContent = 'Remove from watched';
+      refs.addToQueueBtn.classList.add('button-active');
+      refs.addToWatchedBtn.classList.add('button-active');
     } else if (queueFilm) {
       refs.addToQueueBtn.textContent = 'Remove from queue';
+      refs.addToQueueBtn.classList.add('button-active');
+      refs.addToWatchedBtn.classList.remove('button-active');
     } else if (watchedFilm) {
       refs.addToWatchedBtn.textContent = 'Remove from watched';
+      refs.addToWatchedBtn.classList.add('button-active');
+      refs.addToQueueBtn.classList.remove('button-active');
     }
   }
 
@@ -67,20 +73,25 @@ export default function onOpenModalFilmCard(e) {
   function onAddToQueueClick() {
     if (refs.addToQueueBtn.textContent === 'Remove from queue') {
       removeCard(movieId, STORAGE_KEY_QUEUE);
+
       refs.addToQueueBtn.textContent = 'Add to queue';
+      refs.addToQueueBtn.classList.remove('button-active');
       return;
     }
     addCard(parsedData, STORAGE_KEY_QUEUE);
     refs.addToQueueBtn.textContent = 'Remove from queue';
+    refs.addToQueueBtn.classList.add('button-active');
   }
   function onAddToWatchedClick() {
     if (refs.addToWatchedBtn.textContent === 'Remove from watched') {
       removeCard(movieId, STORAGE_KEY_WATCHED);
       refs.addToWatchedBtn.textContent = 'Add to watched';
+      refs.addToWatchedBtn.classList.remove('button-active');
       return;
     }
     addCard(parsedData, STORAGE_KEY_WATCHED);
     refs.addToWatchedBtn.textContent = 'Remove from watched';
+    refs.addToWatchedBtn.classList.add('button-active');
   }
   // ====================================================================
   modal = document.querySelector('.modal');
@@ -98,15 +109,18 @@ export default function onOpenModalFilmCard(e) {
     } else {
       parsedArray.push(data);
     }
+
     saveDataToLocalStorage(key, parsedArray);
   }
 
   function removeCard(id, key) {
     const parsedArray = JSON.parse(localStorage.getItem(key));
     const newParsedArray = parsedArray.filter(film => film.id !== id);
+
     saveDataToLocalStorage(key, newParsedArray);
   }
   NProgress.done();
+
   // ==========================================================================
 }
 
