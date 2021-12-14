@@ -19,6 +19,7 @@ export async function renderGalleryTrendingMovie() {
     const formattedData = formatData(results);
     const markup = filmGallery(formattedData);
     pagination = initPagination({ page, itemsPerPage: results.length, totalItems: totalResults });
+    pagination.totalItemsHome = totalResults;
     ApiService.searchType = 'popular';
     galleryEl.insertAdjacentHTML('beforeend', markup);
 

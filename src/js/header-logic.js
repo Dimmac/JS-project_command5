@@ -42,6 +42,8 @@ function onHomeClick(e) {
   NProgress.start();
   onHomeStateHeader();
   parseTrendingForLocalStorage();
+  ApiService.searchType = 'popular';
+  pagination.reset(pagination.totalItemsHome);
   refs.annotation.classList.add('visually-hidden');
   NProgress.done();
 }
@@ -127,7 +129,7 @@ export function onWatchedClick() {
   NProgress.start();
   refs.queueBtn.classList.remove('button-active');
   refs.watchedBtn.classList.add('button-active');
-
+  ApiService.searchType = 'watched';
   const saveData = localStorage.getItem(STORAGE_KEY_WATCHED);
   const parseData = JSON.parse(saveData) || [];
   saveDataToLocalStorage(STORAGE_KEY_MAIN, parseData);
