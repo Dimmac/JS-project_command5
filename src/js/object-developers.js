@@ -4,7 +4,7 @@ import imgVitaly from '../images/team-photo/Vitalik-dev.jpg';
 import imgJulia from '../images/team-photo/Julia-dev.jpg';
 import imgVadim from '../images/team-photo/Vadim-dev.jpg';
 import imgNatalia from '../images/team-photo/Natasha-dev.jpg';
-import imgMaxim from '../images/team-photo/anonimus-dev1.jpg';
+import imgMaxim from '../images/team-photo/Maxim-dev.jpg';
 import imgMaria from '../images/team-photo/Maria-dev.jpg';
 
 export const developers = [
