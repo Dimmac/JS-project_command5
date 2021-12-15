@@ -54,16 +54,16 @@ export default function onOpenModalFilmCard(e) {
     if (queueFilm && watchedFilm) {
       refs.addToQueueBtn.textContent = 'Remove from queue';
       refs.addToWatchedBtn.textContent = 'Remove from watched';
-      refs.addToQueueBtn.classList.add('button-active');
-      refs.addToWatchedBtn.classList.add('button-active');
+      refs.addToQueueBtn.classList.add('modal__btn-active');
+      refs.addToWatchedBtn.classList.add('modal__btn-active');
     } else if (queueFilm) {
       refs.addToQueueBtn.textContent = 'Remove from queue';
-      refs.addToQueueBtn.classList.add('button-active');
-      refs.addToWatchedBtn.classList.remove('button-active');
+      refs.addToQueueBtn.classList.add('modal__btn-active');
+      refs.addToWatchedBtn.classList.remove('modal__btn-active');
     } else if (watchedFilm) {
       refs.addToWatchedBtn.textContent = 'Remove from watched';
-      refs.addToWatchedBtn.classList.add('button-active');
-      refs.addToQueueBtn.classList.remove('button-active');
+      refs.addToWatchedBtn.classList.add('modal__btn-active');
+      refs.addToQueueBtn.classList.remove('modal__btn-active');
     }
   }
 
@@ -77,23 +77,23 @@ export default function onOpenModalFilmCard(e) {
       removeCard(movieId, STORAGE_KEY_QUEUE);
 
       refs.addToQueueBtn.textContent = 'Add to queue';
-      refs.addToQueueBtn.classList.remove('button-active');
+      refs.addToQueueBtn.classList.remove('modal__btn-active');
       return;
     }
     addCard(parsedData, STORAGE_KEY_QUEUE);
     refs.addToQueueBtn.textContent = 'Remove from queue';
-    refs.addToQueueBtn.classList.add('button-active');
+    refs.addToQueueBtn.classList.add('modal__btn-active');
   }
   function onAddToWatchedClick() {
     if (refs.addToWatchedBtn.textContent === 'Remove from watched') {
       removeCard(movieId, STORAGE_KEY_WATCHED);
       refs.addToWatchedBtn.textContent = 'Add to watched';
-      refs.addToWatchedBtn.classList.remove('button-active');
+      refs.addToWatchedBtn.classList.remove('modal__btn-active');
       return;
     }
     addCard(parsedData, STORAGE_KEY_WATCHED);
     refs.addToWatchedBtn.textContent = 'Remove from watched';
-    refs.addToWatchedBtn.classList.add('button-active');
+    refs.addToWatchedBtn.classList.add('modal__btn-active');
   }
   // ====================================================================
   modal = document.querySelector('.modal');

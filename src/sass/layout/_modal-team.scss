@@ -9,15 +9,15 @@
   padding: 20px;
   border-radius: 10px;
   width: 280px;
-  height: 400px;
+  // height: 400px;
   background-color: var(--text-color-light);
   @include min-width('medium') {
     width: 620px;
-    height: 400px;
+    // height: 400px;
   }
   @include min-width('large') {
     width: 902px;
-    height: 420px;
+    // height: 420px;
   }
 }
 .team-title {
@@ -59,16 +59,16 @@
 
 .team-image {
   display: block;
-  width: 40px;
+  width: 45px;
 
   border-radius: 12px;
 
   transition: all 400ms var(--cubic);
   @include min-width('medium') {
-    width: 60px;
+    width: 80px;
   }
   @include min-width('large') {
-    width: 100px;
+    width: 110px;
   }
 }
 
