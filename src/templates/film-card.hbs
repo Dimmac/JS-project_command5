@@ -7,9 +7,15 @@
             class='film__img'
             src='https://image.tmdb.org/t/p/w500{{poster_path}}'
             alt='{{title}}'
+            loading='lazy'
           />
         {{else}}
-          <img class='film__img' src='https://i.ibb.co/8mnHvb2/no-poster.jpg' alt='no_poster' />
+          <img
+            class='film__img'
+            src='https://i.ibb.co/8mnHvb2/no-poster.jpg'
+            alt='no_poster'
+            loading='lazy'
+          />
         {{/if}}
       </div>
       <div class='film__box-info'>

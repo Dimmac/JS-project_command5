@@ -197,6 +197,7 @@
 
 .input-search__icon-search {
   position: absolute;
+  cursor: pointer;
 
   @media screen and (max-width: 767px) {
     left: 78%;

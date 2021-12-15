@@ -11,7 +11,7 @@ const arrayDev = developers.reduce(
   (acc, { name, image, position, github }) =>
     acc +
     `<li class="team-item">
-    <div class="team-img-wrapper"><img src="${image}" alt="${name}" class="team-image"></div>
+    <div class="team-img-wrapper"><img src="${image}" alt="${name}" class="team-image" loading="lazy"></div>
    <div class="team-info-wrapper">
     <p class="team-name">${name}</p>
     <p class="team-position">${position}</p>
