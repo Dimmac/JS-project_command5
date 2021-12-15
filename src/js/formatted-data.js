@@ -13,6 +13,10 @@ export function formatData(data) {
 
       return acc;
     }, []);
+    item.fullGenres = arrayGenres.map(genre => genre);
+    if (item.fullGenres.length === 0) {
+      item.fullGenres[0] = 'Unknown';
+    }
     if (arrayGenres.length === 0) {
       arrayGenres[0] = 'Unknown';
     } else if (arrayGenres.length >= 3) {
