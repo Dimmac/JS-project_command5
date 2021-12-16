@@ -355,6 +355,13 @@ body {
   transform: translateX(16px);
 }
 
+.svg:hover {
+  fill: #000;
+}
+.svg:hover {
+  fill: var(--accent-color);
+}
+
 // .active-btn {
 //   border: 1px solid #ff6b01;
 //   color: white;
